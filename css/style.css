@@ -1,0 +1,211 @@
+/* --- Fonts & Base --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: #ffffff;
+    color: #1d1d1f;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- Navigation --- */
+.glass-nav {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+/* --- PREMIUM SEGMENTED FILTER (Round, Pillow, etc.) --- */
+.filter-container {
+    background: #f5f5f7; /* Soft track background */
+    padding: 4px;
+    border-radius: 980px;
+    display: inline-flex;
+    gap: 2px;
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.cat-tab {
+    background: transparent;
+    color: #86868b;
+    padding: 10px 24px;
+    border-radius: 980px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    border: none; /* Removed old borders for a cleaner look */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.cat-tab.active {
+    background: #ffffff; /* Floating pill effect */
+    color: #1d1d1f;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.cat-tab:hover:not(.active) {
+    color: #1d1d1f;
+}
+
+/* --- Components & Buttons --- */
+.apple-button {
+    background: #0071e3;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 980px;
+    font-weight: 400;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+}
+
+.apple-button:hover {
+    background: #0077ed;
+    transform: scale(1.02);
+}
+
+/* --- Interactive Configurator Card --- */
+#oak-configurator {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* State: Natural/Light Mode */
+.dark-mode-off {
+    background-color: #ffffff !important;
+    color: #1d1d1f !important;
+    border: 1px solid #e5e7eb !important;
+}
+
+.dark-mode-off #card-title,
+.dark-mode-off #display-price,
+.dark-mode-off #spec-thick,
+.dark-mode-off #spec-edge,
+.dark-mode-off .spec-label { 
+    color: #1d1d1f !important; 
+}
+
+.dark-mode-off #card-subtitle { 
+    color: #86868b !important; 
+}
+
+.dark-mode-off .apple-button-inquire {
+    background: #0071e3 !important;
+    color: white !important;
+}
+
+/* --- REPOSITIONED MATERIAL FINISH SECTION --- */
+#material-toggle-container {
+    display: flex;
+    flex-direction: column; 
+    gap: 12px; 
+}
+
+.spec-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #86868b; 
+}
+
+/* --- FIXED SLIDER: Segmented Control --- */
+.segment-wrapper {
+    background: #f2f2f7; 
+    border-radius: 12px;
+    padding: 2px;
+    display: flex;
+    align-items: stretch;
+    gap: 2px;
+    height: 48px; 
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+#oak-configurator:not(.dark-mode-off) .segment-wrapper {
+    background: rgba(255, 255, 255, 0.1); 
+}
+
+.segment-btn {
+    flex: 1; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    color: #86868b; 
+}
+
+/* Active State - Natural Mode */
+.dark-mode-off .segment-btn.active {
+    background: #ffffff;
+    color: #1d1d1f !important; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06); 
+}
+
+/* Active State - Resin Mode */
+#oak-configurator:not(.dark-mode-off) .segment-btn.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* --- Dimension Selection (Pills) --- */
+.dim-pill {
+    background: #f2f2f7;
+    border: 1px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    color: #86868b;
+}
+
+#oak-configurator:not(.dark-mode-off) .dim-pill {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.dim-pill.active {
+    border-color: #0071e3 !important;
+    background: #ffffff !important;
+    color: #0071e3 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 113, 227, 0.12);
+}
+
+#oak-configurator:not(.dark-mode-off) .dim-pill.active {
+    background: #0071e3 !important;
+    color: #ffffff !important;
+    border-color: #0071e3 !important;
+}
+
+/* --- Visual Effects --- */
+.product-card-hover {
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.6s ease;
+}
+
+.product-card-hover:hover {
+    transform: scale(1.01);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+}
+
+.hero-text-shadow {
+    text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+}
+
+/* Custom Scrollbar for Premium Feel */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f5f5f7;
+}
+::-webkit-scrollbar-thumb {
+    background: #d2d2d7;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #86868b;
+}
