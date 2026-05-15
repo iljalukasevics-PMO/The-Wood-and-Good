@@ -1,62 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Wood and Good | Premium Oak Craftsmanship</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Wood and Good | Premium Oak Craftsmanship</title>
 
-    <style>
-        .segment-btn {
-            cursor: pointer;
-            padding: 12px;
-            border-radius: 12px;
-            text-align: center;
-            font-size: 14px;
-            transition: all 0.2s ease;
-            color: rgba(255,255,255,0.4);
-            flex: 1;
-        }
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-        .segment-btn.active {
-            background-color: white !important;
-            color: #111827 !important;
-            font-weight: 700;
-        }
+<link rel="stylesheet" href="css/style.css">
 
-        .segment-wrapper {
-            display: flex;
-            background: rgba(255,255,255,0.05);
-            padding: 4px;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .dim-btn {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: white;
-            padding: 12px;
-            border-radius: 12px;
-        }
-
-        .dim-btn.active {
-            background: #2563eb !important;
-            border-color: #2563eb !important;
-        }
-
-        .spec-label {
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #6b7280;
-        }
-    </style>
+<style>
+.segment-btn {
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    color: rgba(255,255,255,0.4);
+    flex: 1;
+}
+.segment-btn.active {
+    background-color: white !important;
+    color: #111827 !important;
+    font-weight: 700;
+}
+.segment-wrapper {
+    display: flex;
+    background: rgba(255,255,255,0.05);
+    padding: 4px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.dim-btn {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    padding: 12px;
+    border-radius: 12px;
+}
+.dim-btn.active {
+    background: #2563eb !important;
+    border-color: #2563eb !important;
+}
+</style>
 </head>
 
 <body class="antialiased">
@@ -68,7 +56,7 @@
         <div class="hidden md:flex space-x-10 text-[13px] font-medium text-gray-600">
             <a href="#panels">Panels</a>
             <a href="#table-tops">Table Tops</a>
-            <a href="#pricing">Build</a>
+            <a href="#build">Build</a>
             <a href="#contact" class="text-blue-600">Request Quote</a>
         </div>
     </div>
@@ -88,7 +76,7 @@
         </p>
 
         <div class="flex gap-6 justify-center">
-            <a href="#pricing" class="apple-button">Build your table</a>
+            <a href="#build" class="apple-button">Build your table</a>
             <a href="#contact" class="text-white border-b border-white/40">Get quote →</a>
         </div>
     </div>
@@ -119,21 +107,18 @@
     </div>
 </section>
 
-<!-- TABLE TOPS -->
-<section id="table-tops" class="pt-32 pb-16 bg-white text-center">
-    <h2 class="text-6xl font-semibold">Table Tops.</h2>
+<!-- TABLE TOPS INTRO -->
+<section id="table-tops" class="pt-32 pb-20 bg-white text-center">
+    <h2 class="text-6xl font-semibold tracking-tight">Table Tops.</h2>
     <p class="text-gray-400 mt-4 text-xl">Built to define your space.</p>
 </section>
 
 <!-- BUILD -->
-<section id="pricing" class="py-32 bg-[#f5f5f7]">
+<section id="build" class="pb-32 bg-[#f5f5f7]">
     <div class="max-w-7xl mx-auto px-6 text-center">
 
-        <h2 class="text-5xl font-semibold mb-4">Build Your Table</h2>
-        <p class="text-gray-400 mb-12">Shape. Size. Instantly.</p>
-
         <!-- FILTER -->
-        <div class="flex justify-center mb-10">
+        <div class="flex justify-center mb-12">
             <div class="filter-container">
                 <button onclick="selectCategory('round')" class="cat-tab active">Round</button>
                 <button onclick="selectCategory('pillow')" class="cat-tab">Pillow</button>
@@ -160,7 +145,7 @@
 
                 <h3 id="card-title" class="text-white text-2xl mb-6">Classic Oak</h3>
 
-                <!-- MATERIAL (HIDDEN FOR LIVE EDGE) -->
+                <!-- MATERIAL -->
                 <div id="material-toggle" class="segment-wrapper mb-6">
                     <div onclick="toggleResin(false)" id="btn-natural" class="segment-btn active">Natural</div>
                     <div onclick="toggleResin(true)" id="btn-resin" class="segment-btn">Resin</div>
@@ -172,14 +157,49 @@
             </div>
 
         </div>
-
     </div>
 </section>
 
-<!-- FOOTER -->
-<footer id="contact" class="bg-white py-32 text-center">
-    <h2 class="text-4xl mb-10">Get in touch</h2>
-    <p class="text-gray-500">nils@thewoodandgood.com</p>
+<!-- CONTACT (APPLE STYLE) -->
+<footer id="contact" class="bg-white py-32 border-t border-gray-100">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+
+        <h2 class="text-5xl font-semibold tracking-tight mb-6">
+            Let’s build something exceptional.
+        </h2>
+
+        <p class="text-gray-500 text-lg mb-16">
+            Premium oak. Crafted for your space.
+        </p>
+
+        <div class="bg-[#f5f5f7] rounded-[40px] p-12 text-left shadow-sm border border-gray-100">
+
+            <div class="grid md:grid-cols-2 gap-10">
+
+                <div>
+                    <p class="text-xs uppercase text-gray-400 mb-3">Name</p>
+                    <p class="text-xl font-medium">Ilja Lukasevics</p>
+                </div>
+
+                <div>
+                    <p class="text-xs uppercase text-gray-400 mb-3">Email</p>
+                    <p class="text-xl font-medium text-blue-600">iljalukasevics@gmail.com</p>
+                </div>
+
+                <div>
+                    <p class="text-xs uppercase text-gray-400 mb-3">Phone</p>
+                    <p class="text-xl font-medium">+371 25940440</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="mt-16 text-[10px] tracking-[0.3em] uppercase text-gray-400">
+            © 2026 THE WOOD AND GOOD
+        </p>
+
+    </div>
 </footer>
 
 <script src="js/pricing.js"></script>
@@ -187,15 +207,14 @@
 <script>
 function selectCategory(type) {
 
-    // call your existing logic
     setCategory(type);
 
     const materialToggle = document.getElementById("material-toggle");
 
-    if (type === "live") {
+    // LIVE EDGE & STRAIGHT → ONLY NATURAL
+    if (type === "live" || type === "straight") {
         materialToggle.style.display = "none";
 
-        // force natural mode
         document.getElementById("btn-natural").classList.add("active");
         document.getElementById("btn-resin").classList.remove("active");
 
