@@ -20,7 +20,32 @@ body {
     z-index: 1000;
 }
 
-/* --- PREMIUM SEGMENTED FILTER (Round, Pillow, etc.) --- */
+/* --- THE GAP CRUSHER: Global Section Spacing --- */
+section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+}
+
+/* Specifically target the Investment section to pull it upward */
+.specifications-section {
+    margin-top: -30px !important; 
+    padding-top: 20px !important;
+}
+
+.specifications-section h2 {
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.specifications-section p {
+    margin-bottom: 24px !important;
+    opacity: 0.7;
+}
+
+/* --- PREMIUM SEGMENTED FILTER --- */
 .filter-container {
     background: #f5f5f7;
     padding: 4px;
@@ -38,7 +63,6 @@ body {
     border-radius: 980px;
     font-size: 13px;
     font-weight: 500;
-    letter-spacing: 0.01em;
     border: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
@@ -50,28 +74,7 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
 }
 
-.cat-tab:hover:not(.active) {
-    color: #1d1d1f;
-}
-
-/* --- Components & Buttons --- */
-.apple-button {
-    background: #0071e3;
-    color: white;
-    padding: 12px 28px;
-    border-radius: 980px;
-    font-weight: 400;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    display: inline-block;
-    text-decoration: none;
-}
-
-.apple-button:hover {
-    background: #0077ed;
-    transform: scale(1.02);
-}
-
-/* --- Interactive Configurator Card --- */
+/* --- Configurator Card --- */
 #oak-configurator {
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid rgba(0,0,0,0.05);
@@ -79,85 +82,38 @@ body {
     overflow: hidden;
 }
 
-/* State: Natural/Light Mode */
 .dark-mode-off {
     background-color: #ffffff !important;
     color: #1d1d1f !important;
-    border: 1px solid #e5e7eb !important;
 }
 
-.dark-mode-off #card-title,
-.dark-mode-off #display-price,
-.dark-mode-off #spec-thick,
-.dark-mode-off #spec-edge,
-.dark-mode-off .spec-label { 
-    color: #1d1d1f !important; 
-}
+/* --- MOBILE-SPECIFIC: ULTRA-TIGHT SPACING --- */
+@media (max-width: 768px) {
+    section {
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+    }
 
-.dark-mode-off #card-subtitle { 
-    color: #86868b !important; 
-}
+    .specifications-section {
+        margin-top: -50px !important; /* Aggressive pull-up for mobile gap */
+    }
 
-.dark-mode-off .apple-button-inquire {
-    background: #0071e3 !important;
-    color: white !important;
-}
+    .specifications-section h2 {
+        font-size: 24px !important;
+        margin-bottom: 4px !important;
+    }
 
-/* --- REPOSITIONED MATERIAL FINISH SECTION --- */
-#material-toggle-container {
-    display: flex;
-    flex-direction: column; 
-    gap: 12px; 
-}
+    .filter-container {
+        display: flex;
+        width: 100%;
+        margin-bottom: 20px;
+    }
 
-.spec-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #86868b; 
-}
-
-/* --- FIXED SLIDER: Segmented Control --- */
-.segment-wrapper {
-    background: #f2f2f7; 
-    border-radius: 12px;
-    padding: 2px;
-    display: flex;
-    align-items: stretch;
-    gap: 2px;
-    height: 48px; 
-    width: 100%;
-    border: 1px solid rgba(0,0,0,0.02);
-}
-
-#oak-configurator:not(.dark-mode-off) .segment-wrapper {
-    background: rgba(255, 255, 255, 0.1); 
-}
-
-.segment-btn {
-    flex: 1; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-    color: #86868b; 
-}
-
-.dark-mode-off .segment-btn.active {
-    background: #ffffff;
-    color: #1d1d1f !important; 
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06); 
-}
-
-#oak-configurator:not(.dark-mode-off) .segment-btn.active {
-    background: rgba(255, 255, 255, 0.2);
-    color: #ffffff !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    .cat-tab {
+        flex: 1;
+        padding: 10px 5px;
+        font-size: 12px;
+    }
 }
 
 /* --- Dimension Selection (Pills) --- */
@@ -172,11 +128,6 @@ body {
     text-align: center;
 }
 
-#oak-configurator:not(.dark-mode-off) .dim-pill {
-    background: rgba(255, 255, 255, 0.05);
-    color: rgba(255, 255, 255, 0.5);
-}
-
 .dim-pill.active {
     border-color: #0071e3 !important;
     background: #ffffff !important;
@@ -185,68 +136,19 @@ body {
     box-shadow: 0 6px 16px rgba(0, 113, 227, 0.12);
 }
 
-#oak-configurator:not(.dark-mode-off) .dim-pill.active {
-    background: #0071e3 !important;
-    color: #ffffff !important;
-    border-color: #0071e3 !important;
-}
-
-/* --- Visual Effects --- */
-.product-card-hover {
-    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.6s ease;
-}
-
-.product-card-hover:hover {
-    transform: scale(1.01);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.08);
-}
-
-.hero-text-shadow {
-    text-shadow: 0 2px 15px rgba(0,0,0,0.3);
-}
-
-/* --- MOBILE-SPECIFIC FIXES (CRITICAL) --- */
-@media (max-width: 768px) {
-    .specifications-section {
-        padding-top: 24px !important;
-        padding-bottom: 24px !important;
-    }
-
-    .specifications-section h2 {
-        margin-bottom: 4px !important;
-        font-size: 24px !important;
-        letter-spacing: -0.02em;
-    }
-
-    .specifications-section p {
-        margin-bottom: 16px !important;
-        font-size: 14px;
-        opacity: 0.6;
-    }
-
-    .filter-container {
-        display: flex;
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .cat-tab {
-        flex: 1;
-        padding: 10px 5px;
-        font-size: 12px;
-    }
-
-    #material-toggle-container {
-        gap: 8px !important;
-    }
-
-    .segment-wrapper {
-        height: 44px;
-    }
+/* --- Components & Buttons --- */
+.apple-button {
+    background: #0071e3;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 980px;
+    font-weight: 400;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+    text-decoration: none;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: #f5f5f7; }
 ::-webkit-scrollbar-thumb { background: #d2d2d7; border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: #86868b; }
