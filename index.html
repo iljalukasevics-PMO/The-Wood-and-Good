@@ -9,8 +9,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     
     <link rel="stylesheet" href="css/style.css">
+
     <style>
-        /* CRITICAL: Fixes the 'Natural' button visibility in the dark configurator */
         .segment-btn {
             cursor: pointer;
             padding: 12px;
@@ -22,7 +22,6 @@
             flex: 1;
         }
 
-        /* Active state: White background, dark text */
         .segment-btn.active {
             background-color: white !important;
             color: #111827 !important;
@@ -37,14 +36,12 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Dimension buttons */
         .dim-btn {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: white;
             padding: 12px;
             border-radius: 12px;
-            transition: all 0.2s ease;
         }
 
         .dim-btn.active {
@@ -61,208 +58,151 @@
         }
     </style>
 </head>
+
 <body class="antialiased">
 
-    <nav class="glass-nav fixed top-0 w-full z-50 border-b border-gray-100 bg-white/80 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
-            <div class="font-semibold tracking-tight text-xl italic uppercase">The Wood and Good</div>
-            <div class="hidden md:flex space-x-10 text-[13px] font-medium text-gray-600">
-                <a href="#panels" class="hover:text-black transition-colors">Panels</a>
-                <a href="#table-tops" class="hover:text-black transition-colors">Table Tops</a>
-                <a href="#pricing" class="hover:text-black transition-colors">Pricing</a>
-                <a href="#contact" class="hover:text-blue-600 transition-colors">Request Quote</a>
-            </div>
+<!-- NAV -->
+<nav class="fixed top-0 w-full z-50 border-b border-gray-100 bg-white/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+        <div class="font-semibold tracking-tight text-xl italic uppercase">The Wood and Good</div>
+        <div class="hidden md:flex space-x-10 text-[13px] font-medium text-gray-600">
+            <a href="#panels">Panels</a>
+            <a href="#table-tops">Table Tops</a>
+            <a href="#pricing">Build</a>
+            <a href="#contact" class="text-blue-600">Request Quote</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="images/hero-oak idas/hero-oak.jpg" class="w-full h-full object-cover" alt="Premium Latvian Oak">
-            <div class="absolute inset-0 bg-black/40"></div>
+<!-- HERO -->
+<section class="relative h-screen flex items-center justify-center">
+    <img src="images/hero-oak idas/hero-oak.jpg" class="absolute w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <div class="relative text-center px-6">
+        <h1 class="text-white text-6xl md:text-8xl font-bold tracking-tighter mb-6">
+            Solid Oak.<br><span class="opacity-80 font-light">Naturally perfected.</span>
+        </h1>
+        <p class="text-white/90 text-xl mb-10 max-w-2xl mx-auto">
+            Crafted in Latvia. Designed for timeless interiors.
+        </p>
+
+        <div class="flex gap-6 justify-center">
+            <a href="#pricing" class="apple-button">Explore</a>
+            <a href="#contact" class="text-white border-b border-white/40">Get quote →</a>
         </div>
-        <div class="relative z-10 text-center px-6 mt-12">
-            <h1 class="text-white text-6xl md:text-8xl font-bold tracking-tighter mb-6 hero-text-shadow">
-                Solid Oak. <br><span class="opacity-80 font-light">Naturally perfected.</span>
-            </h1>
-            <p class="text-white/90 text-xl md:text-2xl font-light mb-12 max-w-2xl mx-auto">
-                Crafting the future of your space with the strength and timeless resilience of Latvian Oak.
-            </p>
-            <div class="flex flex-col md:flex-row gap-8 justify-center items-center">
-                <a href="#pricing" class="apple-button text-lg">Explore Pricing</a>
-                <a href="#contact" class="text-white border-b border-white/40 hover:border-white transition-all pb-1 text-lg">Get a quote &rarr;</a>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
 
-    <section id="panels" class="py-32 bg-[#f5f5f7]">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-16 text-center md:text-left">
-                <h2 class="text-5xl md:text-6xl font-semibold tracking-tight">Oak Solid Wood Panels</h2>
-                <p class="text-gray-500 text-xl mt-4 max-w-2xl">Tailored to meet stringent demands of industrial and small-scale applications.</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white rounded-[32px] overflow-hidden product-card-hover border border-gray-100">
-                    <div class="h-80 overflow-hidden">
-                        <img src="images/hero-oak idas/alex-tyson-t_V8KS2cNol-unsplash.jpg" class="w-full h-full object-cover" alt="Full Stave Panel">
-                    </div>
-                    <div class="p-12">
-                        <span class="text-orange-700 text-xs font-bold uppercase tracking-widest">Full Stave (FS)</span>
-                        <h3 class="text-3xl font-semibold mt-2 mb-4">Continuous Elegance</h3>
-                        <p class="text-gray-500 leading-relaxed mb-6">Thicknesses up to 42mm and lengths up to 3000mm.</p>
-                        <div class="text-sm font-semibold text-gray-400">Standard: 18, 20, 26, 30, 41mm</div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-[32px] overflow-hidden product-card-hover border border-gray-100">
-                    <div class="h-80 overflow-hidden">
-                        <img src="images/hero-oak idas/clay-banks-98h8i2twi2U-unsplash.jpg" class="w-full h-full object-cover" alt="Finger Joint Panel">
-                    </div>
-                    <div class="p-12">
-                        <span class="text-orange-700 text-xs font-bold uppercase tracking-widest">Finger Joints (FJ)</span>
-                        <h3 class="text-3xl font-semibold mt-2 mb-4">Precision & Stability</h3>
-                        <p class="text-gray-500 leading-relaxed mb-6">Lengths up to 5000mm. Engineered for maximum structural integrity.</p>
-                        <div class="text-sm font-semibold text-gray-400">Standard: 18, 27, 40mm</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- PANELS -->
+<section id="panels" class="py-32 bg-[#f5f5f7]">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-5xl font-semibold mb-12">Oak Panels</h2>
 
-    <section id="table-tops" class="pt-32 pb-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl md:text-7xl font-semibold tracking-tighter mb-6">Table Tops.</h2>
-                <p class="text-gray-400 text-xl md:text-2xl font-light max-w-2xl mx-auto mb-12">Masterpieces that elevate any interior space.</p>
-                
-                <div class="flex flex-col md:flex-row justify-center gap-6 max-w-4xl mx-auto">
-                    <div class="flex-1 bg-[#f5f5f7] rounded-[32px] p-10 flex flex-col items-center text-center transition-all hover:shadow-md">
-                        <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm mb-6">
-                            <i class="fa-solid fa-sparkles text-blue-500 text-lg"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3 tracking-tight">Gloss Lacquer</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed max-w-[240px]">Dual-coated for a sophisticated sheen and high durability.</p>
-                    </div>
+        <div class="grid md:grid-cols-2 gap-8">
 
-                    <div class="flex-1 bg-[#f5f5f7] rounded-[32px] p-10 flex flex-col items-center text-center transition-all hover:shadow-md">
-                        <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm mb-6">
-                            <i class="fa-solid fa-leaf text-orange-500 text-lg"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3 tracking-tight">Natural Wax</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed max-w-[240px]">Sanded and treated with organic wax to preserve wood relief.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="pricing" class="pt-4 pb-32 bg-[#f5f5f7]">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-4">Investment</h2>
-                <p class="text-gray-400 text-lg max-w-2xl mx-auto italic font-light">Refined selections for distinguished interiors.</p>
-                
-                <div class="flex justify-center mt-10">
-                    <div class="filter-container">
-                        <button onclick="setCategory('round')" class="cat-tab active">Round</button>
-                        <button onclick="setCategory('pillow')" class="cat-tab">Pillow</button>
-                        <button onclick="setCategory('live')" class="cat-tab">Live Edge</button>
-                        <button onclick="setCategory('straight')" class="cat-tab">Straight</button>
-                    </div>
+            <div class="bg-white rounded-[32px] overflow-hidden border">
+                <img src="images/hero-oak idas/alex-tyson-t_V8KS2cNol-unsplash.jpg" class="h-80 w-full object-cover">
+                <div class="p-10">
+                    <h3 class="text-2xl font-semibold">Full Stave</h3>
+                    <p class="text-gray-500 mt-2">Continuous grain elegance.</p>
                 </div>
             </div>
 
-            <div class="max-w-xl mx-auto">
-                <div class="mb-8 relative group">
-                    <div class="bg-white rounded-[40px] overflow-hidden shadow-sm border border-gray-100 aspect-square relative">
-                        <img id="product-hero-image" 
-                             src="images/products/round-natural.jpg" 
-                             class="w-full h-full object-cover transition-all duration-700 ease-in-out" 
-                             alt="Premium Oak Table Top">
-                        
-                        <div class="absolute top-6 left-6">
-                            <span id="image-badge" class="bg-white/90 backdrop-blur-md px-4 py-2 rounded-2xl text-[10px] font-bold uppercase tracking-widest text-gray-500 shadow-sm border border-gray-100">
-                                Latvian Oak
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="oak-configurator" class="bg-gray-900 rounded-[40px] p-10 shadow-2xl transition-all duration-500 overflow-hidden relative">
-                    
-                    <div class="flex justify-between items-start mb-10">
-                        <div id="card-tag" class="bg-blue-600 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full text-white">Exclusive</div>
-                        <div class="text-right">
-                            <span id="display-price" class="text-4xl font-light text-white italic transition-opacity duration-150">€187</span>
-                            <p id="display-price-suffix" class="text-[10px] text-white/40 uppercase mt-1 tracking-widest">Investment</p>
-                        </div>
-                    </div>
-
-                    <div class="space-y-8">
-                        <div class="text-left"> 
-                            <h3 id="card-title" class="text-3xl font-semibold text-white mb-2 tracking-tight">Classic Oak Round Accent</h3>
-                            <p id="card-subtitle" class="text-gray-400 text-sm italic mb-10">
-                                <span id="card-edge-text">Radius R3</span> • <span id="card-material-text">Natural Oak</span>
-                            </p>
-                            
-                            <div id="material-toggle-container" class="mb-10">
-                                <p class="spec-label mb-3">Material Finish</p>
-                                <div class="segment-wrapper">
-                                    <div onclick="toggleResin(false)" id="btn-natural" class="segment-btn active">Natural Oak</div>
-                                    <div onclick="toggleResin(true)" id="btn-resin" class="segment-btn">Black Resin</div>
-                                </div>
-                            </div>
-
-                            <p class="spec-label mb-4">Select Dimensions (mm)</p>
-                            <div id="dimension-grid" class="grid grid-cols-2 gap-3 transition-all duration-300">
-                                </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-12 pt-8 border-t border-white/10 flex justify-between items-center transition-colors">
-                        <div class="flex gap-8">
-                            <div>
-                                <p class="spec-label">Thickness</p>
-                                <p id="spec-thick" class="text-sm text-white font-medium">26mm</p>
-                            </div>
-                            <div>
-                                <p class="spec-label">Edge Profile</p>
-                                <p id="spec-edge" class="text-sm text-white font-medium">Radius R3</p>
-                            </div>
-                        </div>
-                        <a href="#contact" class="apple-button-inquire">
-                            Inquire
-                        </a>
-                    </div>
-                </div>
-
-                <p class="mt-8 text-center text-gray-400 text-[10px] uppercase tracking-[0.2em] font-medium">
-                    Custom scale available: €5000 - €8000 per m³
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact" class="bg-white py-32 border-t border-gray-100">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-5xl font-semibold mb-12 tracking-tight">Your project deserves <br>the finest oak.</h2>
-            <div class="inline-block text-left bg-gray-50 p-12 rounded-[40px] w-full border border-gray-100 shadow-sm">
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div>
-                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Contact</p>
-                        <p class="text-2xl font-medium mb-1">Nils Trapāns</p>
-                        <a href="mailto:nils@thewoodandgood.com" class="text-blue-600 mb-6 block font-medium">nils@thewoodandgood.com</a>
-                        <p class="text-xl font-light text-gray-800">+371 29 233 953</p>
-                    </div>
-                    <div>
-                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Address</p>
-                        <p class="text-gray-600 leading-relaxed">Ulbrokas iela 19A, Rīga<br>LV-1021, Latvija</p>
-                    </div>
+            <div class="bg-white rounded-[32px] overflow-hidden border">
+                <img src="images/hero-oak idas/clay-banks-98h8i2twi2U-unsplash.jpg" class="h-80 w-full object-cover">
+                <div class="p-10">
+                    <h3 class="text-2xl font-semibold">Finger Joint</h3>
+                    <p class="text-gray-500 mt-2">Maximum stability.</p>
                 </div>
             </div>
-            <p class="mt-16 text-[10px] text-gray-400 font-medium tracking-[0.3em] uppercase">© 2026 THE WOOD AND GOOD.</p>
-        </div>
-    </footer>
 
-    <script src="js/pricing.js"></script>
+        </div>
+    </div>
+</section>
+
+<!-- TABLE TOPS INTRO -->
+<section id="table-tops" class="pt-32 pb-12 bg-white text-center">
+    <h2 class="text-6xl font-semibold">Table Tops.</h2>
+    <p class="text-gray-400 mt-4 text-xl">Built to define your space.</p>
+</section>
+
+<!-- FINISHES -->
+<section class="pb-24 bg-white">
+    <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-6">
+
+        <div class="bg-[#f5f5f7] rounded-[32px] p-10 text-center hover:shadow-md">
+            <i class="fa-solid fa-sparkles text-blue-500 text-xl mb-4"></i>
+            <h3 class="text-xl font-semibold">Gloss Lacquer</h3>
+            <p class="text-gray-500 text-sm mt-2">Refined shine with durability.</p>
+        </div>
+
+        <div class="bg-[#f5f5f7] rounded-[32px] p-10 text-center hover:shadow-md">
+            <i class="fa-solid fa-leaf text-orange-500 text-xl mb-4"></i>
+            <h3 class="text-xl font-semibold">Natural Wax</h3>
+            <p class="text-gray-500 text-sm mt-2">Raw, organic matte finish.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- BUILD & PRICING -->
+<section id="pricing" class="py-32 bg-[#f5f5f7]">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+
+        <h2 class="text-5xl font-semibold mb-4">Build & Pricing</h2>
+        <p class="text-gray-400 mb-10">Configure your perfect table.</p>
+
+        <!-- FILTER -->
+        <div class="flex justify-center mb-10">
+            <div class="filter-container">
+                <button onclick="setCategory('round')" class="cat-tab active">Round</button>
+                <button onclick="setCategory('pillow')" class="cat-tab">Pillow</button>
+                <button onclick="setCategory('live')" class="cat-tab">Live Edge</button>
+                <button onclick="setCategory('straight')" class="cat-tab">Straight</button>
+            </div>
+        </div>
+
+        <!-- CARD -->
+        <div class="max-w-xl mx-auto">
+
+            <div class="bg-white rounded-[40px] overflow-hidden mb-6">
+                <img id="product-hero-image" src="images/products/round-natural.jpg" class="w-full h-full object-cover">
+            </div>
+
+            <!-- CONFIGURATOR (UNCHANGED) -->
+            <div id="oak-configurator" class="bg-gray-900 rounded-[40px] p-10">
+
+                <div class="flex justify-between mb-8">
+                    <div id="card-tag" class="bg-blue-600 text-xs px-3 py-1 rounded text-white">Exclusive</div>
+                    <div class="text-right">
+                        <span id="display-price" class="text-3xl text-white">€187</span>
+                    </div>
+                </div>
+
+                <h3 id="card-title" class="text-white text-2xl mb-6">Classic Oak</h3>
+
+                <div class="segment-wrapper mb-6">
+                    <div onclick="toggleResin(false)" id="btn-natural" class="segment-btn active">Natural</div>
+                    <div onclick="toggleResin(true)" id="btn-resin" class="segment-btn">Resin</div>
+                </div>
+
+                <div id="dimension-grid" class="grid grid-cols-2 gap-3"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact" class="bg-white py-32 text-center">
+    <h2 class="text-4xl mb-10">Get in touch</h2>
+    <p class="text-gray-500">nils@thewoodandgood.com</p>
+</footer>
+
+<script src="js/pricing.js"></script>
 
 </body>
 </html>
