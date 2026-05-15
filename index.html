@@ -33,17 +33,6 @@
     border-radius: 16px;
     border: 1px solid rgba(255,255,255,0.1);
 }
-.dim-btn {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: white;
-    padding: 12px;
-    border-radius: 12px;
-}
-.dim-btn.active {
-    background: #2563eb !important;
-    border-color: #2563eb !important;
-}
 
 /* PREMIUM BADGE */
 .badge-premium {
@@ -55,7 +44,6 @@
     border-radius: 999px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 /* MOBILE NAV */
@@ -87,6 +75,7 @@
 
 <body class="antialiased pb-20 md:pb-0">
 
+<!-- NAV -->
 <nav class="fixed top-0 w-full z-50 border-b border-gray-100 bg-white/80 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
         <div class="font-semibold tracking-tight text-xl italic uppercase">The Wood and Good</div>
@@ -98,15 +87,16 @@
     </div>
 </nav>
 
+<!-- HERO -->
 <section class="relative h-screen flex items-center justify-center">
-    <img src="images/hero-oak.jpg" onerror="this.src='images/hero-oak idas/hero-oak.jpg'" class="absolute w-full h-full object-cover">
+    <img src="images/hero-oak idas/hero-oak.jpg" class="absolute w-full h-full object-cover">
     <div class="absolute inset-0 bg-black/40"></div>
 
     <div class="relative text-center px-6">
         <h1 class="text-white text-6xl md:text-8xl font-bold tracking-tighter mb-6">
             Solid Oak.<br><span class="opacity-80 font-light">Naturally perfected.</span>
         </h1>
-        <p class="text-white/90 text-xl mb-10 max-w-2xl mx-auto">
+        <p class="text-white/90 text-xl mb-8 max-w-2xl mx-auto">
             Crafted in Latvia. Designed for timeless interiors.
         </p>
 
@@ -117,13 +107,17 @@
     </div>
 </section>
 
-<section id="panels" class="pt-16 pb-8 bg-[#f5f5f7]">
+<!-- PANELS -->
+<section id="panels" class="pt-12 pb-6 bg-[#f5f5f7]">
     <div class="max-w-7xl mx-auto px-6">
         <h2 class="text-5xl font-semibold mb-6">Oak Panels</h2>
 
         <div class="grid md:grid-cols-2 gap-6">
+            <!-- FIXED IMAGE -->
             <div class="bg-white rounded-[32px] overflow-hidden border">
-                <img src="images/alex-tyson-t_V8KS2cNol-unsplash.jpg" onerror="this.src='images/hero-oak idas/alex-tyson-t_V8KS2cNol-unsplash.jpg'" class="h-64 w-full object-cover bg-gray-100" alt="Full Stave Oak">
+                <img src="images/hero-oak idas/alex-tyson-t_V8KS2cNol-unsplash.jpg"
+                     class="h-64 w-full object-cover"
+                     alt="Full Stave Oak">
                 <div class="p-6">
                     <h3 class="text-2xl font-semibold">Full Stave</h3>
                     <p class="text-gray-500 mt-1">Continuous grain elegance.</p>
@@ -131,7 +125,9 @@
             </div>
 
             <div class="bg-white rounded-[32px] overflow-hidden border">
-                <img src="images/clay-banks-98h8i2twi2U-unsplash.jpg" onerror="this.src='images/hero-oak idas/clay-banks-98h8i2twi2U-unsplash.jpg'" class="h-64 w-full object-cover bg-gray-100" alt="Finger Joint Oak">
+                <img src="images/hero-oak idas/clay-banks-98h8i2twi2U-unsplash.jpg"
+                     class="h-64 w-full object-cover"
+                     alt="Finger Joint Oak">
                 <div class="p-6">
                     <h3 class="text-2xl font-semibold">Finger Joint</h3>
                     <p class="text-gray-500 mt-1">Maximum stability.</p>
@@ -141,12 +137,14 @@
     </div>
 </section>
 
-<section id="table-tops" class="pt-12 pb-6 bg-white text-center">
+<!-- TABLE TOPS -->
+<section id="table-tops" class="pt-10 pb-4 bg-white text-center">
     <h2 class="text-5xl md:text-6xl font-semibold tracking-tight">Table Tops</h2>
     <p class="text-gray-400 mt-2 text-lg">Built to define your space.</p>
 </section>
 
-<section id="build" class="pb-16 bg-white">
+<!-- BUILD -->
+<section id="build" class="pb-12 bg-white">
     <div class="max-w-xl mx-auto px-6 text-center">
 
         <div class="flex justify-center mb-6">
@@ -158,22 +156,20 @@
             </div>
         </div>
 
-        <div class="bg-[#f5f5f7] rounded-[40px] overflow-hidden mb-4 border border-gray-100">
+        <div class="bg-[#f5f5f7] rounded-[40px] overflow-hidden mb-4 border">
             <img id="product-hero-image" src="images/products/round-natural.jpg" class="w-full h-full object-cover">
         </div>
 
         <div id="oak-configurator" class="bg-gray-900 rounded-[40px] p-8 text-left">
 
-            <div class="flex justify-between items-center mb-6">
+            <div class="flex justify-between items-center mb-5">
                 <div id="card-tag" class="badge-premium">Natural</div>
-                <div class="text-right">
-                    <span id="display-price" class="text-3xl text-white font-light italic">€187</span>
-                </div>
+                <span id="display-price" class="text-3xl text-white font-light italic">€187</span>
             </div>
 
-            <h3 id="card-title" class="text-white text-2xl font-semibold mb-6">Classic Oak</h3>
+            <h3 id="card-title" class="text-white text-2xl font-semibold mb-5">Classic Oak</h3>
 
-            <div class="mb-6">
+            <div id="material-block" class="mb-5">
                 <p class="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-2">Material Finish</p>
                 <div id="material-toggle" class="segment-wrapper">
                     <div onclick="toggleResin(false)" id="btn-natural" class="segment-btn active">Natural</div>
@@ -190,16 +186,18 @@
     </div>
 </section>
 
-<footer id="contact" class="bg-white pt-16 pb-24 border-t text-center">
+<!-- CONTACT -->
+<footer id="contact" class="bg-white pt-12 pb-20 border-t text-center">
     <h2 class="text-4xl md:text-5xl font-semibold mb-6 tracking-tight">Let’s build something exceptional.</h2>
 
-    <div class="bg-[#f5f5f7] rounded-[40px] p-8 max-w-2xl mx-auto border border-gray-100">
+    <div class="bg-[#f5f5f7] rounded-[40px] p-8 max-w-2xl mx-auto border">
         <p class="text-xl font-semibold">Ilja Lukasevics</p>
         <a href="mailto:iljalukasevics@gmail.com" class="text-blue-600 block my-1 font-medium">iljalukasevics@gmail.com</a>
-        <p class="text-gray-800">+371 25940440</p>
+        <p>+371 25940440</p>
     </div>
 </footer>
 
+<!-- MOBILE NAV -->
 <div class="mobile-nav md:hidden">
     <a href="#panels"><i class="fa-solid fa-layer-group"></i>Panels</a>
     <a href="#table-tops"><i class="fa-solid fa-table"></i>Tables</a>
@@ -212,14 +210,14 @@
 function selectCategory(type) {
     setCategory(type);
 
-    const materialToggle = document.getElementById("material-toggle").parentElement;
+    const materialBlock = document.getElementById("material-block");
 
     if (type === "live" || type === "straight") {
-        materialToggle.style.display = "none";
+        materialBlock.style.display = "none";
         document.getElementById("btn-natural").classList.add("active");
         document.getElementById("btn-resin").classList.remove("active");
     } else {
-        materialToggle.style.display = "block";
+        materialBlock.style.display = "block";
     }
 }
 </script>
