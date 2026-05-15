@@ -68,7 +68,6 @@ function renderDimensionGrid(sizes) {
     grid.innerHTML = '';
     sizes.forEach(size => {
         const btn = document.createElement('div');
-        // Matches the .dim-pill class in style.css
         btn.className = `dim-pill ${size == currentConfig.dimensions ? 'active' : ''}`;
         btn.innerText = `${size}×${size}`;
         btn.onclick = (e) => window.updateSelection(size, btn);
@@ -93,7 +92,7 @@ window.toggleResin = function(status) {
 };
 
 /**
- * Main UI Refresh: Handles theme swapping, prices, and labels
+ * Main UI Refresh: Handles theme swapping, prices, labels, and IMAGES
  */
 function updateUI() {
     const { category, isResin, dimensions } = currentConfig;
@@ -105,6 +104,8 @@ function updateUI() {
     const title = document.getElementById('card-title');
     const tag = document.getElementById('card-tag');
     const priceDisplay = document.getElementById('display-price');
+    const heroImage = document.getElementById('product-hero-image');
+    const imageBadge = document.getElementById('image-badge');
     
     // Product Info Mapping
     const info = {
@@ -114,16 +115,31 @@ function updateUI() {
         straight: { name: "Industrial Straight", edge: "Straight Edge" }
     };
 
-    // 1. Theme & Toggle Management
+    // 1. IMAGE & BADGE UPDATE (Apple-style fade)
+    if (heroImage) {
+        heroImage.style.opacity = '0.3'; // Start fade out
+        
+        setTimeout(() => {
+            // Path: images/products/round-natural.jpg, pillow-resin.jpg, etc.
+            heroImage.src = `images/products/${category}-${mode}.jpg`;
+            heroImage.style.opacity = '1'; // Fade in
+        }, 150);
+    }
+
+    if (imageBadge) {
+        imageBadge.innerText = isResin ? "Resin Infused" : "Latvian Oak";
+    }
+
+    // 2. Theme & Toggle Management
     if (isResin) {
-        card.classList.remove('dark-mode-off'); // Switch to Dark Mode
+        card.classList.remove('dark-mode-off'); 
         tag.innerText = "Exclusive";
         tag.className = "bg-blue-600 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full text-white inline-block";
         
         document.getElementById('btn-resin')?.classList.add('active');
         document.getElementById('btn-natural')?.classList.remove('active');
     } else {
-        card.classList.add('dark-mode-off'); // Switch to Light Mode
+        card.classList.add('dark-mode-off'); 
         tag.innerText = "Natural";
         tag.className = "bg-emerald-600 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full text-white inline-block";
         
@@ -131,24 +147,23 @@ function updateUI() {
         document.getElementById('btn-resin')?.classList.remove('active');
     }
 
-    // 2. Text Content Updates
+    // 3. Text Content Updates
     title.innerText = (isResin ? "Resin " : "Classic Oak ") + info[category].name;
     
-    // Update Individual Spans for subtitle precision
     const edgeLabel = document.getElementById('card-edge-text');
     const materialLabel = document.getElementById('card-material-text');
     
     if (edgeLabel) edgeLabel.innerText = info[category].edge;
     if (materialLabel) materialLabel.innerText = isResin ? "Black Resin" : "Natural Oak";
     
-    // 3. Specs Update (Footer Table)
+    // 4. Specs Update
     const specThick = document.getElementById('spec-thick');
     const specEdge = document.getElementById('spec-edge');
     
     if (specThick) specThick.innerText = `${data.thick}mm`;
     if (specEdge) specEdge.innerText = info[category].edge;
 
-    // 4. Price Animation
+    // 5. Price Animation
     if (priceDisplay) {
         priceDisplay.style.opacity = '0';
         setTimeout(() => {
