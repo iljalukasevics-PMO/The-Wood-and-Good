@@ -27,7 +27,7 @@ let currentConfig = {
 };
 
 /**
- * Switcher for the Top Gallery Tabs
+ * Switcher for the Top Gallery Tabs (Round, Pillow, etc.)
  */
 window.setCategory = function(cat) {
     currentConfig.category = cat;
@@ -42,24 +42,24 @@ window.setCategory = function(cat) {
     const availableSizes = Object.keys(pricingMatrix[cat].natural);
     currentConfig.dimensions = availableSizes[0];
     
-    // 3. Logic: Check if Resin is supported
+    // 3. Logic: Check if Resin is supported for this shape
     const resinToggle = document.getElementById('material-toggle-container');
     if (!pricingMatrix[cat].resin) {
         currentConfig.isResin = false; // Force natural if resin doesn't exist
         if(resinToggle) resinToggle.style.display = 'none';
     } else {
-        if(resinToggle) resinToggle.style.display = 'flex';
+        if(resinToggle) resinToggle.style.display = 'block';
     }
 
-    // 4. UI: Rebuild Dimension Grid (The "Clean" way)
+    // 4. UI: Rebuild Dimension Grid
     renderDimensionGrid(availableSizes);
     
-    // 5. Finalize
+    // 5. Finalize UI State
     updateUI();
 };
 
 /**
- * Generates the clean dimension buttons
+ * Generates the premium dimension pills
  */
 function renderDimensionGrid(sizes) {
     const grid = document.getElementById('dimension-grid');
@@ -67,20 +67,22 @@ function renderDimensionGrid(sizes) {
     
     grid.innerHTML = '';
     sizes.forEach(size => {
-        const btn = document.createElement('button');
-        btn.className = `dim-pill py-4 rounded-2xl text-sm transition-all duration-300 ${size == currentConfig.dimensions ? 'active' : ''}`;
+        const btn = document.createElement('div');
+        // Matches the .dim-pill class in your style.css
+        btn.className = `dim-pill ${size == currentConfig.dimensions ? 'active' : ''}`;
         btn.innerText = `${size}×${size}`;
-        btn.onclick = (e) => window.updateSelection(size, e.target);
+        btn.onclick = (e) => window.updateSelection(size, btn);
         grid.appendChild(btn);
     });
 }
 
-window.updateSelection = function(dim, button) {
+window.updateSelection = function(dim, buttonElement) {
     currentConfig.dimensions = dim;
     
-    // Update button states in the grid
-    button.parentElement.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
+    // Update active state in grid
+    const siblings = buttonElement.parentElement.querySelectorAll('.dim-pill');
+    siblings.forEach(btn => btn.classList.remove('active'));
+    buttonElement.classList.add('active');
 
     updateUI();
 };
@@ -91,7 +93,7 @@ window.toggleResin = function(status) {
 };
 
 /**
- * Main UI Refresh: Handles themes, prices, and labels
+ * Main UI Refresh: Handles theme swapping, prices, and labels
  */
 function updateUI() {
     const { category, isResin, dimensions } = currentConfig;
@@ -112,36 +114,45 @@ function updateUI() {
         straight: { name: "Industrial Straight", edge: "Straight Edge" }
     };
 
-    // 1. Theme Management
+    // 1. Theme & Toggle Management
     if (isResin) {
-        card.classList.remove('dark-mode-off');
+        card.classList.remove('dark-mode-off'); // Go Dark
         tag.innerText = "Exclusive";
-        tag.className = "bg-blue-600 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full text-white";
+        tag.className = "bg-blue-600 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full text-white inline-block";
+        
         document.getElementById('btn-resin')?.classList.add('active');
         document.getElementById('btn-natural')?.classList.remove('active');
     } else {
-        card.classList.add('dark-mode-off');
+        card.classList.add('dark-mode-off'); // Go Light
         tag.innerText = "Natural";
-        tag.className = "bg-emerald-600 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full text-white";
+        tag.className = "bg-emerald-600 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full text-white inline-block";
+        
         document.getElementById('btn-natural')?.classList.add('active');
         document.getElementById('btn-resin')?.classList.remove('active');
     }
 
     // 2. Text Content Updates
     title.innerText = (isResin ? "Resin " : "Classic Oak ") + info[category].name;
-    document.getElementById('card-edge-text').innerText = info[category].edge;
-    document.getElementById('card-material-text').innerText = isResin ? "Black Resin" : "Natural Oak";
     
-    // 3. Specs Update
-    document.getElementById('spec-thick').innerText = `${data.thick}mm`;
-    document.getElementById('spec-edge').innerText = info[category].edge;
+    // Update Subtitles and Labels
+    const subText = `${info[category].edge} • ${isResin ? "Black Resin" : "Natural Oak"}`;
+    const subtitleElement = document.getElementById('card-subtitle');
+    if (subtitleElement) subtitleElement.innerText = subText;
+    
+    // 3. Specs Update (Lower Table)
+    const specThick = document.getElementById('spec-thick');
+    const specEdge = document.getElementById('spec-edge');
+    if (specThick) specThick.innerText = `${data.thick}mm`;
+    if (specEdge) specEdge.innerText = info[category].edge;
 
     // 4. Price Animation
-    priceDisplay.style.opacity = '0';
-    setTimeout(() => {
-        priceDisplay.innerText = `€${data.price}`;
-        priceDisplay.style.opacity = '1';
-    }, 100);
+    if (priceDisplay) {
+        priceDisplay.style.opacity = '0';
+        setTimeout(() => {
+            priceDisplay.innerText = `€${data.price}`;
+            priceDisplay.style.opacity = '1';
+        }, 100);
+    }
 }
 
 // Initialize on Load

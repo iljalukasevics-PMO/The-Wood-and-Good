@@ -15,52 +15,42 @@ body {
     -webkit-backdrop-filter: saturate(180%) blur(20px);
 }
 
-/* --- SECTION SPACING --- */
-/* Standard sections stay roomy */
-section {
-    padding: 80px 0;
-}
-
-/* Specifically target the Investment section to pull it upward as requested */
-#pricing {
-    padding-top: 20px !important; 
-}
-
-/* --- PREMIUM SEGMENTED FILTER (Category Tabs) --- */
+/* --- Premium Category Tabs (Round, Pillow, etc) --- */
 .filter-container {
     background: #f5f5f7;
     padding: 4px;
     border-radius: 980px;
     display: inline-flex;
-    gap: 2px;
-    border: 1px solid rgba(0,0,0,0.02);
+    gap: 4px;
 }
 
 .cat-tab {
     background: transparent;
     color: #86868b;
-    padding: 10px 24px;
+    padding: 8px 20px;
     border-radius: 980px;
     font-size: 13px;
     font-weight: 500;
-    border: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .cat-tab.active {
     background: #ffffff;
     color: #1d1d1f;
+    border-color: rgba(0,0,0,0.05);
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-/* --- DARK CONFIGURATOR CARD (RESTORED) --- */
+/* --- Interactive Configurator Card --- */
 #oak-configurator {
-    background-color: #111827; /* Matches tailwind gray-900 */
+    background-color: #111827; /* Default Dark Mode */
+    border-radius: 40px;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Labels for 'Thickness', 'Edge Profile', etc. */
+/* Labels: Thickness, Dimensions, etc. */
 .spec-label {
     display: block;
     text-transform: uppercase;
@@ -68,100 +58,118 @@ section {
     font-weight: 700;
     letter-spacing: 0.1em;
     color: rgba(255, 255, 255, 0.3);
-    margin-bottom: 8px;
 }
 
-/* --- MATERIAL TOGGLE (Natural vs Resin) --- */
+/* State: Natural/Light Mode Override */
+.dark-mode-off {
+    background-color: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+}
+
+.dark-mode-off #card-title,
+.dark-mode-off #display-price,
+.dark-mode-off #spec-thick,
+.dark-mode-off #spec-edge,
+.dark-mode-off .spec-label { 
+    color: #1d1d1f !important; 
+}
+
+.dark-mode-off #card-subtitle { 
+    color: #86868b !important; 
+}
+
+/* --- MATERIAL SLIDER (Natural vs Resin) --- */
 .segment-wrapper {
+    background: rgba(255, 255, 255, 0.1); /* Dark Well */
+    border-radius: 14px;
+    padding: 2px;
     display: flex;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 4px;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 32px;
+    height: 44px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode-off .segment-wrapper {
+    background: #f2f2f7; /* Light Well */
+    border: 1px solid rgba(0,0,0,0.02);
 }
 
 .segment-btn {
     flex: 1;
-    padding: 8px 0;
-    text-align: center;
-    font-size: 12px;
-    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.2s;
     color: rgba(255, 255, 255, 0.4);
 }
 
+.dark-mode-off .segment-btn { color: #86868b; }
+
 .segment-btn.active {
-    background: white;
-    color: black;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff !important;
 }
 
-/* --- DIMENSION SELECTION (Grid Buttons) --- */
-.dim-btn {
+.dark-mode-off .segment-btn.active {
+    background: #ffffff;
+    color: #1d1d1f !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* --- Dimension Selection (Pills) --- */
+.dim-pill {
     padding: 12px;
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.05);
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 14px;
-    transition: all 0.2s;
-    cursor: pointer;
     text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid transparent;
 }
 
-.dim-btn:hover {
-    border-color: rgba(255, 255, 255, 0.3);
+.dark-mode-off .dim-pill {
+    background: #f2f2f7;
+    color: #86868b;
 }
 
-.dim-btn.active {
-    border-color: #2563eb;
-    background: rgba(37, 99, 235, 0.1);
-    color: white;
-    box-shadow: inset 0 0 0 1px #2563eb;
+.dim-pill.active {
+    background: #0071e3 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
 }
 
-/* --- BUTTONS --- */
-.apple-button {
-    background: #0071e3;
-    color: white;
-    padding: 14px 32px;
+.dark-mode-off .dim-pill.active {
+    background: #ffffff !important;
+    color: #0071e3 !important;
+    border-color: #0071e3 !important;
+    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.15);
+}
+
+/* --- Buttons --- */
+.apple-button-inquire {
+    background: #ffffff; /* Dark mode button */
+    color: #000000;
+    padding: 10px 24px;
     border-radius: 980px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    transition: all 0.3s;
 }
 
-.apple-button:hover {
-    background: #0077ed;
-    transform: scale(1.02);
+.dark-mode-off .apple-button-inquire {
+    background: #0071e3 !important;
+    color: #ffffff !important;
 }
 
-/* --- MOBILE OPTIMIZATION --- */
+/* --- Mobile Fixes --- */
 @media (max-width: 768px) {
-    section {
-        padding: 40px 0;
-    }
-
-    #pricing {
-        padding-top: 10px !important;
-    }
-
-    #oak-configurator {
-        padding: 24px !important;
-    }
-
-    .filter-container {
-        display: flex;
-        width: 100%;
-    }
-
-    .cat-tab {
-        flex: 1;
-        padding: 10px 4px;
-        font-size: 11px;
-    }
+    #oak-configurator { padding: 24px !important; }
+    .cat-tab { padding: 8px 12px; font-size: 12px; }
 }
 
 /* Custom Scrollbar */
