@@ -9,10 +9,61 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* CRITICAL: Fixes the 'Natural' button visibility in the dark configurator */
+        .segment-btn {
+            cursor: pointer;
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            color: rgba(255, 255, 255, 0.4);
+            flex: 1;
+        }
+
+        /* Active state: White background, dark text (Matches your screenshot) */
+        .segment-btn.active {
+            background-color: white !important;
+            color: #111827 !important;
+            font-weight: 700;
+        }
+
+        .segment-wrapper {
+            display: flex;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Dimension buttons */
+        .dim-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 12px;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .dim-btn.active {
+            background: #2563eb !important;
+            border-color: #2563eb !important;
+        }
+
+        .spec-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #6b7280;
+        }
+    </style>
 </head>
 <body class="antialiased">
 
-    <nav class="glass-nav fixed top-0 w-full z-50 border-b border-gray-100">
+    <nav class="glass-nav fixed top-0 w-full z-50 border-b border-gray-100 bg-white/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
             <div class="font-semibold tracking-tight text-xl italic uppercase">The Wood and Good</div>
             <div class="hidden md:flex space-x-10 text-[13px] font-medium text-gray-600">
@@ -162,7 +213,7 @@
 
                             <p class="spec-label mb-4">Select Dimensions (mm)</p>
                             <div id="dimension-grid" class="grid grid-cols-2 gap-3 transition-all duration-300">
-                            </div>
+                                </div>
                         </div>
                     </div>
 
