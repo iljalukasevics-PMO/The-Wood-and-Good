@@ -30,15 +30,15 @@
 
         .segment-wrapper {
             display: flex;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255,255,255,0.05);
             padding: 4px;
             border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .dim-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
             color: white;
             padding: 12px;
             border-radius: 12px;
@@ -88,7 +88,7 @@
         </p>
 
         <div class="flex gap-6 justify-center">
-            <a href="#pricing" class="apple-button">Explore</a>
+            <a href="#pricing" class="apple-button">Build your table</a>
             <a href="#contact" class="text-white border-b border-white/40">Get quote →</a>
         </div>
     </div>
@@ -121,37 +121,18 @@
     </div>
 </section>
 
-<!-- TABLE TOPS INTRO -->
-<section id="table-tops" class="pt-32 pb-12 bg-white text-center">
+<!-- TABLE TOPS (CLEAN INTRO ONLY) -->
+<section id="table-tops" class="pt-32 pb-16 bg-white text-center">
     <h2 class="text-6xl font-semibold">Table Tops.</h2>
     <p class="text-gray-400 mt-4 text-xl">Built to define your space.</p>
-</section>
-
-<!-- FINISHES -->
-<section class="pb-24 bg-white">
-    <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-6">
-
-        <div class="bg-[#f5f5f7] rounded-[32px] p-10 text-center hover:shadow-md">
-            <i class="fa-solid fa-sparkles text-blue-500 text-xl mb-4"></i>
-            <h3 class="text-xl font-semibold">Gloss Lacquer</h3>
-            <p class="text-gray-500 text-sm mt-2">Refined shine with durability.</p>
-        </div>
-
-        <div class="bg-[#f5f5f7] rounded-[32px] p-10 text-center hover:shadow-md">
-            <i class="fa-solid fa-leaf text-orange-500 text-xl mb-4"></i>
-            <h3 class="text-xl font-semibold">Natural Wax</h3>
-            <p class="text-gray-500 text-sm mt-2">Raw, organic matte finish.</p>
-        </div>
-
-    </div>
 </section>
 
 <!-- BUILD & PRICING -->
 <section id="pricing" class="py-32 bg-[#f5f5f7]">
     <div class="max-w-7xl mx-auto px-6 text-center">
 
-        <h2 class="text-5xl font-semibold mb-4">Build & Pricing</h2>
-        <p class="text-gray-400 mb-10">Configure your perfect table.</p>
+        <h2 class="text-5xl font-semibold mb-4">Build Your Table</h2>
+        <p class="text-gray-400 mb-12">Shape. Size. Finish. Instantly.</p>
 
         <!-- FILTER -->
         <div class="flex justify-center mb-10">
@@ -163,14 +144,14 @@
             </div>
         </div>
 
-        <!-- CARD -->
+        <!-- PRODUCT -->
         <div class="max-w-xl mx-auto">
 
             <div class="bg-white rounded-[40px] overflow-hidden mb-6">
                 <img id="product-hero-image" src="images/products/round-natural.jpg" class="w-full h-full object-cover">
             </div>
 
-            <!-- CONFIGURATOR (UNCHANGED) -->
+            <!-- CONFIGURATOR -->
             <div id="oak-configurator" class="bg-gray-900 rounded-[40px] p-10">
 
                 <div class="flex justify-between mb-8">
@@ -182,11 +163,22 @@
 
                 <h3 id="card-title" class="text-white text-2xl mb-6">Classic Oak</h3>
 
+                <!-- FINISH (MOVED HERE = CORRECT UX) -->
+                <div class="mb-8">
+                    <p class="spec-label mb-3">Finish</p>
+                    <div class="segment-wrapper">
+                        <div class="segment-btn active">Natural Wax</div>
+                        <div class="segment-btn">Gloss Lacquer</div>
+                    </div>
+                </div>
+
+                <!-- MATERIAL -->
                 <div class="segment-wrapper mb-6">
                     <div onclick="toggleResin(false)" id="btn-natural" class="segment-btn active">Natural</div>
                     <div onclick="toggleResin(true)" id="btn-resin" class="segment-btn">Resin</div>
                 </div>
 
+                <!-- DIMENSIONS -->
                 <div id="dimension-grid" class="grid grid-cols-2 gap-3"></div>
 
             </div>
