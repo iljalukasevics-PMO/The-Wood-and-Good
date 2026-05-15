@@ -68,7 +68,7 @@ function renderDimensionGrid(sizes) {
     grid.innerHTML = '';
     sizes.forEach(size => {
         const btn = document.createElement('div');
-        // Matches the .dim-pill class in your style.css
+        // Matches the .dim-pill class in style.css
         btn.className = `dim-pill ${size == currentConfig.dimensions ? 'active' : ''}`;
         btn.innerText = `${size}×${size}`;
         btn.onclick = (e) => window.updateSelection(size, btn);
@@ -116,14 +116,14 @@ function updateUI() {
 
     // 1. Theme & Toggle Management
     if (isResin) {
-        card.classList.remove('dark-mode-off'); // Go Dark
+        card.classList.remove('dark-mode-off'); // Switch to Dark Mode
         tag.innerText = "Exclusive";
         tag.className = "bg-blue-600 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full text-white inline-block";
         
         document.getElementById('btn-resin')?.classList.add('active');
         document.getElementById('btn-natural')?.classList.remove('active');
     } else {
-        card.classList.add('dark-mode-off'); // Go Light
+        card.classList.add('dark-mode-off'); // Switch to Light Mode
         tag.innerText = "Natural";
         tag.className = "bg-emerald-600 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full text-white inline-block";
         
@@ -134,14 +134,17 @@ function updateUI() {
     // 2. Text Content Updates
     title.innerText = (isResin ? "Resin " : "Classic Oak ") + info[category].name;
     
-    // Update Subtitles and Labels
-    const subText = `${info[category].edge} • ${isResin ? "Black Resin" : "Natural Oak"}`;
-    const subtitleElement = document.getElementById('card-subtitle');
-    if (subtitleElement) subtitleElement.innerText = subText;
+    // Update Individual Spans for subtitle precision
+    const edgeLabel = document.getElementById('card-edge-text');
+    const materialLabel = document.getElementById('card-material-text');
     
-    // 3. Specs Update (Lower Table)
+    if (edgeLabel) edgeLabel.innerText = info[category].edge;
+    if (materialLabel) materialLabel.innerText = isResin ? "Black Resin" : "Natural Oak";
+    
+    // 3. Specs Update (Footer Table)
     const specThick = document.getElementById('spec-thick');
     const specEdge = document.getElementById('spec-edge');
+    
     if (specThick) specThick.innerText = `${data.thick}mm`;
     if (specEdge) specEdge.innerText = info[category].edge;
 
