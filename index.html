@@ -11,6 +11,27 @@
 <link rel="stylesheet" href="css/style.css">
 
 <style>
+/* Default styles for the configurator card container when dark-mode-off is present */
+#oak-configurator.dark-mode-off {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+}
+#oak-configurator.dark-mode-off h3,
+#oak-configurator.dark-mode-off span {
+    color: #111827 !important;
+}
+#oak-configurator.dark-mode-off .text-gray-400,
+#oak-configurator.dark-mode-off .text-gray-600 {
+    color: #6b7280 !important;
+}
+
+/* Default styles for active premium dark mode (Resin state without dark-mode-off) */
+#oak-configurator {
+    background-color: #111827 !important;
+    color: #ffffff !important;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
 /* Category Button Styles matching pricing.js (.cat-tab.active) */
 .cat-tab {
     cursor: pointer;
@@ -55,6 +76,13 @@
     border-radius: 16px;
     border: 1px solid #e5e7eb;
 }
+#oak-configurator:not(.dark-mode-off) .segment-wrapper {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.2);
+}
+#oak-configurator:not(.dark-mode-off) .segment-btn {
+    color: rgba(255,255,255,0.6);
+}
 
 /* Dynamic Dimension Pills matching pricing.js (.dim-pill.active) */
 .dim-pill {
@@ -69,6 +97,10 @@
     color: #4b5563;
     transition: all 0.15s ease;
 }
+#oak-configurator:not(.dark-mode-off) .dim-pill {
+    background: rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.8);
+}
 .dim-pill.active {
     background: white !important;
     border-color: #2563eb !important;
@@ -76,42 +108,44 @@
     box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1);
 }
 
-.mobile-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(255,255,255,0.9);
-    backdrop-filter: blur(12px);
-    border-top: 1px solid #eee;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-    z-index: 50;
-}
-.mobile-nav a {
-    font-size: 12px;
-    color: #666;
-    text-align: center;
-}
-.mobile-nav i {
-    display: block;
-    font-size: 18px;
-    margin-bottom: 4px;
-}
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Hamburger Dropdown Animation */
+#mobile-menu {
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+#mobile-menu.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
 </style>
 </head>
 
-<body class="antialiased pb-20 md:pb-0 text-gray-900 bg-white">
+<body class="antialiased text-gray-900 bg-white">
 
 <nav class="fixed top-0 w-full z-50 border-b border-gray-100 bg-white/80 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
         <div class="font-semibold tracking-tight text-xl italic uppercase">The Wood and Good</div>
+        
         <div class="hidden md:flex space-x-10 text-[13px] font-medium text-gray-600">
-            <a href="#panels">Panels</a>
-            <a href="#table-tops">Table Tops</a>
+            <a href="#panels" class="hover:text-gray-900 transition">Panels</a>
+            <a href="#table-tops" class="hover:text-gray-900 transition">Table Tops</a>
+        </div>
+
+        <button onclick="toggleMenu()" class="block md:hidden text-gray-700 hover:text-gray-900 focus:outline-none text-xl p-2" aria-label="Toggle Menu">
+            <i id="hamburger-icon" class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+
+    <div id="mobile-menu" class="absolute top-14 left-0 w-full bg-white border-b border-gray-200 shadow-xl md:hidden z-40">
+        <div class="flex flex-col py-3 px-6 space-y-4 font-medium text-sm text-gray-600">
+            <a href="#panels" onclick="toggleMenu()" class="py-2 border-b border-gray-50 flex items-center gap-3"><i class="fa-solid fa-layer-group text-gray-400"></i> Panels</a>
+            <a href="#table-tops" onclick="toggleMenu()" class="py-2 flex items-center gap-3"><i class="fa-solid fa-table text-gray-400"></i> Table Tops</a>
         </div>
     </div>
 </nav>
@@ -195,25 +229,25 @@
                      class="max-w-full max-h-full object-contain transition-opacity duration-150">
             </div>
 
-            <div id="oak-configurator" class="text-left flex flex-col justify-between h-full py-1">
+            <div id="oak-configurator" class="rounded-[24px] p-4 text-left flex flex-col justify-between h-full py-1">
                 <div>
                     <div class="flex justify-between items-center mb-3">
-                        <div id="card-tag" class="bg-emerald-600 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full text-white inline-block">Natural</div>
-                        <span id="display-price" class="text-4xl font-light italic text-gray-900 transition-opacity duration-100">€36</span>
+                        <div id="card-tag" class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full text-white inline-block">Natural</div>
+                        <span id="display-price" class="text-4xl font-light italic tracking-tight transition-opacity duration-100">€36</span>
                     </div>
 
-                    <h3 id="card-title" class="text-gray-900 text-2xl font-bold mb-1 tracking-tight">Classic Oak Round Accent</h3>
+                    <h3 id="card-title" class="text-2xl font-bold mb-1 tracking-tight">Classic Oak Round Accent</h3>
                     
-                    <div class="text-xs text-gray-400 font-medium mb-4 flex gap-3">
-                        <span>Edge: <span id="card-edge-text" class="text-gray-600">Radius R3</span></span>
-                        <span>Material: <span id="card-material-text" class="text-gray-600">Natural Oak</span></span>
-                        <span>Thickness: <span id="spec-thick" class="text-gray-600">20mm</span></span>
+                    <div class="text-xs font-medium mb-4 flex gap-4 border-b border-gray-100 pb-3 opacity-80">
+                        <span>Edge: <span id="card-edge-text" class="font-semibold">Radius R3</span></span>
+                        <span>Material: <span id="card-material-text" class="font-semibold">Natural Oak</span></span>
+                        <span>Thickness: <span id="spec-thick" class="font-semibold">20mm</span></span>
                     </div>
                 </div>
 
                 <div class="space-y-4">
                     <div id="material-toggle-container" class="mb-3">
-                        <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1.5">Material Finish</p>
+                        <p class="text-[10px] uppercase tracking-widest font-bold mb-1.5 opacity-60">Material Finish</p>
                         <div id="material-toggle" class="segment-wrapper">
                             <div onclick="window.toggleResin(false)" id="btn-natural" class="segment-btn active">Natural</div>
                             <div onclick="window.toggleResin(true)" id="btn-resin" class="segment-btn">Resin</div>
@@ -221,7 +255,7 @@
                     </div>
 
                     <div>
-                        <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1.5">Select Dimensions (mm)</p>
+                        <p class="text-[10px] uppercase tracking-widest font-bold mb-1.5 opacity-60">Select Dimensions (mm)</p>
                         <div id="dimension-grid" class="grid grid-cols-2 gap-2"></div>
                     </div>
                 </div>
@@ -231,12 +265,23 @@
     </div>
 </section>
 
-<div class="mobile-nav md:hidden">
-    <a href="#panels"><i class="fa-solid fa-layer-group"></i>Panels</a>
-    <a href="#table-tops"><i class="fa-solid fa-table"></i>Tables</a>
-</div>
-
 <script src="js/pricing.js"></script>
+
+<script>
+// Mobile Hamburger menu toggle action
+function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('hamburger-icon');
+    
+    if (menu.classList.contains('open')) {
+        menu.classList.remove('open');
+        icon.className = "fa-solid fa-bars";
+    } else {
+        menu.classList.add('open');
+        icon.className = "fa-solid fa-xmark";
+    }
+}
+</script>
 
 </body>
 </html>
