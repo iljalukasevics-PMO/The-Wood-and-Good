@@ -1,137 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Wood and Good | Premium Oak Craftsmanship</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wood and Good | Premium Oak Craftsmanship</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-<link rel="stylesheet" href="css/style.css">
-
-<style>
-/* Default styles for the configurator card container when dark-mode-off is present */
-#oak-configurator.dark-mode-off {
-    background-color: #ffffff !important;
-    color: #111827 !important;
-}
-#oak-configurator.dark-mode-off h3,
-#oak-configurator.dark-mode-off span {
-    color: #111827 !important;
-}
-#oak-configurator.dark-mode-off .text-gray-400,
-#oak-configurator.dark-mode-off .text-gray-600 {
-    color: #6b7280 !important;
-}
-
-/* Default styles for active premium dark mode (Resin state without dark-mode-off) */
-#oak-configurator {
-    background-color: #111827 !important;
-    color: #ffffff !important;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-/* Category Button Styles matching pricing.js (.cat-tab.active) */
-.cat-tab {
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 999px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    color: #6b7280;
-    background: transparent;
-    border: 1px solid transparent;
-}
-.cat-tab.active {
-    background-color: white !important;
-    color: #111827 !important;
-    font-weight: 700;
-    border-color: #e5e7eb;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-/* Toggle Segment Button Styles (.segment-btn.active) */
-.segment-btn {
-    cursor: pointer;
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
-    font-size: 14px;
-    transition: all 0.2s ease;
-    color: #6b7280;
-    flex: 1;
-}
-.segment-btn.active {
-    background-color: white !important;
-    color: #111827 !important;
-    font-weight: 700;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-.segment-wrapper {
-    display: flex;
-    background: #f3f4f6;
-    padding: 4px;
-    border-radius: 16px;
-    border: 1px solid #e5e7eb;
-}
-#oak-configurator:not(.dark-mode-off) .segment-wrapper {
-    background: rgba(255,255,255,0.1);
-    border-color: rgba(255,255,255,0.2);
-}
-#oak-configurator:not(.dark-mode-off) .segment-btn {
-    color: rgba(255,255,255,0.6);
-}
-
-/* Dynamic Dimension Pills matching pricing.js (.dim-pill.active) */
-.dim-pill {
-    cursor: pointer;
-    padding: 14px;
-    background: #f3f4f6;
-    border: 2px solid transparent;
-    border-radius: 16px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 600;
-    color: #4b5563;
-    transition: all 0.15s ease;
-}
-#oak-configurator:not(.dark-mode-off) .dim-pill {
-    background: rgba(255,255,255,0.05);
-    color: rgba(255,255,255,0.8);
-}
-.dim-pill.active {
-    background: white !important;
-    border-color: #2563eb !important;
-    color: #2563eb !important;
-    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1);
-}
-
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-/* Hamburger Dropdown Animation */
-#mobile-menu {
-    transition: all 0.3s ease-in-out;
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
-}
-#mobile-menu.open {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-
-/* Premium Drawer Sheets Configuration styles */
-#price-modal {
-    transition: opacity 0.25s ease-in-out;
-}
-#price-sheet {
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-</style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="antialiased text-gray-900 bg-white">
@@ -145,15 +22,15 @@
             <a href="#table-tops" class="hover:text-gray-900 transition">Table Tops</a>
         </div>
 
-        <button onclick="toggleMenu()" class="block md:hidden text-gray-700 hover:text-gray-900 focus:outline-none text-xl p-2" aria-label="Toggle Menu">
+        <button onclick="window.toggleMenu()" class="block md:hidden text-gray-700 hover:text-gray-900 focus:outline-none text-xl p-2" aria-label="Toggle Menu">
             <i id="hamburger-icon" class="fa-solid fa-bars"></i>
         </button>
     </div>
 
     <div id="mobile-menu" class="absolute top-14 left-0 w-full bg-white border-b border-gray-200 shadow-xl md:hidden z-40">
         <div class="flex flex-col py-3 px-6 space-y-4 font-medium text-sm text-gray-600">
-            <a href="#panels" onclick="toggleMenu()" class="py-2 border-b border-gray-50 flex items-center gap-3"><i class="fa-solid fa-layer-group text-gray-400"></i> Panels</a>
-            <a href="#table-tops" onclick="toggleMenu()" class="py-2 flex items-center gap-3"><i class="fa-solid fa-table text-gray-400"></i> Table Tops</a>
+            <a href="#panels" onclick="window.toggleMenu()" class="py-2 border-b border-gray-50 flex items-center gap-3"><i class="fa-solid fa-layer-group text-gray-400"></i> Panels</a>
+            <a href="#table-tops" onclick="window.toggleMenu()" class="py-2 flex items-center gap-3"><i class="fa-solid fa-table text-gray-400"></i> Table Tops</a>
         </div>
     </div>
 </nav>
@@ -267,7 +144,7 @@
             </div>
 
             <div class="text-center mt-6">
-                <button onclick="openPriceModal('panels-tab')" class="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white text-xs uppercase tracking-widest font-bold px-6 py-3 rounded-xl shadow-md transition-all duration-200">
+                <button onclick="window.openPriceModal('panels-tab')" class="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white text-xs uppercase tracking-widest font-bold px-6 py-3 rounded-xl shadow-md transition-all duration-200">
                     <i class="fa-solid fa-table text-xs text-gray-400"></i> View Panel Price Matrix
                 </button>
             </div>
@@ -360,7 +237,7 @@
                 
                 <img id="product-hero-image"
                      src="images/products/round-natural.jpg"
-                     onerror="this.src='https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1200&auto=format&fit=crop'"
+                     onerror="this.src='https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1200&auto=format&fit=crop';"
                      class="max-w-full max-h-full object-contain transition-opacity duration-150">
             </div>
 
@@ -391,10 +268,9 @@
 
                     <div>
                         <p class="text-[10px] uppercase tracking-widest font-bold mb-2 opacity-60">Select Dimensions (mm)</p>
-                        
                         <div id="dimension-grid" class="grid grid-cols-2 gap-2 mb-3"></div>
                         
-                        <div onclick="openPriceModal('tables-tab')" class="cursor-pointer border border-dashed border-gray-300 #oak-configurator:not(.dark-mode-off):border-gray-700 hover:bg-gray-50 #oak-configurator:not(.dark-mode-off):hover:bg-white/5 rounded-xl p-3 text-center transition-all duration-150 flex items-center justify-center gap-2 text-xs font-bold tracking-wider uppercase text-gray-500 #oak-configurator:not(.dark-mode-off):text-gray-400">
+                        <div onclick="window.openPriceModal('tables-tab')" class="cursor-pointer border border-dashed border-gray-300 #oak-configurator:not(.dark-mode-off):border-gray-700 hover:bg-gray-50 #oak-configurator:not(.dark-mode-off):hover:bg-white/5 rounded-xl p-3 text-center transition-all duration-150 flex items-center justify-center gap-2 text-xs font-bold tracking-wider uppercase text-gray-500 #oak-configurator:not(.dark-mode-off):text-gray-400">
                             <i class="fa-solid fa-table-list opacity-70"></i> View Full Price Matrix
                         </div>
                     </div>
@@ -405,7 +281,7 @@
 </section>
 
 <div id="price-modal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none flex items-end md:items-center justify-center">
-    <div class="absolute inset-0" onclick="closePriceModal()"></div>
+    <div class="absolute inset-0" onclick="window.closePriceModal()"></div>
     
     <div id="price-sheet" class="relative w-full max-w-2xl bg-white rounded-t-[32px] md:rounded-[24px] shadow-2xl transform translate-y-full md:translate-y-4 max-h-[85vh] md:max-h-[78vh] flex flex-col overflow-hidden z-10">
         
@@ -415,14 +291,14 @@
                     <h3 class="text-lg font-bold text-gray-900 tracking-tight">Master Price Catalog</h3>
                     <p class="text-xs text-gray-400 font-medium mt-0.5">Premium wholesale & architectural configurations</p>
                 </div>
-                <button onclick="closePriceModal()" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors flex items-center justify-center text-gray-500 hover:text-gray-800">
+                <button onclick="window.closePriceModal()" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors flex items-center justify-center text-gray-500 hover:text-gray-800">
                     <i class="fa-solid fa-xmark text-sm"></i>
                 </button>
             </div>
 
             <div class="flex bg-gray-100 p-1 rounded-xl w-full justify-between">
-                <button id="tables-tab" onclick="switchModalTab('tables-tab')" class="flex-1 py-2 text-xs font-bold uppercase tracking-wider rounded-lg text-center transition-all duration-150 bg-white text-gray-900 shadow-sm">Table Tops</button>
-                <button id="panels-tab" onclick="switchModalTab('panels-tab')" class="flex-1 py-2 text-xs font-bold uppercase tracking-wider rounded-lg text-center transition-all duration-150 text-gray-400 hover:text-gray-700">Solid Panels</button>
+                <button id="tables-tab" onclick="window.switchModalTab('tables-tab')" class="flex-1 py-2 text-xs font-bold uppercase tracking-wider rounded-lg text-center transition-all duration-150 bg-white text-gray-900 shadow-sm">Table Tops</button>
+                <button id="panels-tab" onclick="window.switchModalTab('panels-tab')" class="flex-1 py-2 text-xs font-bold uppercase tracking-wider rounded-lg text-center transition-all duration-150 text-gray-400 hover:text-gray-700">Solid Panels</button>
             </div>
         </div>
 
@@ -550,7 +426,6 @@
             </div>
 
             <div id="modal-panels-data" class="space-y-6 hidden">
-                
                 <div class="bg-white rounded-2xl border border-gray-100 p-4 shadow-sm">
                     <div class="flex items-center justify-between border-b border-gray-100 pb-2 mb-3">
                         <span class="text-sm font-bold tracking-tight text-gray-900 flex items-center gap-2"><i class="fa-solid fa-layer-group text-xs text-gray-400"></i> Full Stave (FS) — Quality AB</span>
@@ -623,7 +498,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
         </div>
@@ -631,74 +505,6 @@
 </div>
 
 <script src="js/pricing.js"></script>
-
-<script>
-// Mobile Hamburger menu toggle action
-function toggleMenu() {
-    const menu = document.getElementById('mobile-menu');
-    const icon = document.getElementById('hamburger-icon');
-    
-    if (menu.classList.contains('open')) {
-        menu.classList.remove('open');
-        icon.className = "fa-solid fa-bars";
-    } else {
-        menu.classList.add('open');
-        icon.className = "fa-solid fa-xmark";
-    }
-}
-
-// Modal Toggle Mechanics supporting tab navigation parameters
-function openPriceModal(targetTabId = 'tables-tab') {
-    const modal = document.getElementById('price-modal');
-    const sheet = document.getElementById('price-sheet');
-    document.body.classList.add('overflow-hidden'); // stop background scrolling
-    
-    modal.classList.remove('pointer-events-none');
-    modal.classList.add('opacity-100');
-    sheet.classList.remove('translate-y-full', 'md:translate-y-4');
-    sheet.classList.add('translate-y-0');
-
-    // Automatically trigger the correct initial dashboard viewport state
-    switchModalTab(targetTabId);
-}
-
-function closePriceModal() {
-    const modal = document.getElementById('price-modal');
-    const sheet = document.getElementById('price-sheet');
-    document.body.classList.remove('overflow-hidden');
-    
-    modal.classList.add('pointer-events-none');
-    modal.classList.remove('opacity-100');
-    sheet.classList.remove('translate-y-0');
-    sheet.classList.add('translate-y-full', 'md:translate-y-4');
-}
-
-// Switching logic context inside the sheet container workspace viewports
-function switchModalTab(tabId) {
-    const tablesBtn = document.getElementById('tables-tab');
-    const panelsBtn = document.getElementById('panels-tab');
-    const tablesData = document.getElementById('modal-tables-data');
-    const panelsData = document.getElementById('modal-panels-data');
-
-    if (tabId === 'panels-tab') {
-        // Toggle Buttons styles
-        panelsBtn.className = "flex-1 py-2 text-xs font-bold uppercase tracking-wider rounded-lg text-center transition-all duration-150 bg-white text-gray-900 shadow-sm";
-        tablesBtn.className = "flex-1 py-2 text-xs font-bold uppercase tracking-wider rounded-lg text-center transition-all duration-150 text-gray-400 hover:text-gray-700";
-        // Toggle view containers
-        tablesData.classList.add('hidden');
-        panelsData.classList.remove('hidden');
-    } else {
-        tablesBtn.className = "flex-1 py-2 text-xs font-bold uppercase tracking-wider rounded-lg text-center transition-all duration-150 bg-white text-gray-900 shadow-sm";
-        panelsBtn.className = "flex-1 py-2 text-xs font-bold uppercase tracking-wider rounded-lg text-center transition-all duration-150 text-gray-400 hover:text-gray-700";
-        panelsData.classList.add('hidden');
-        tablesData.classList.remove('hidden');
-    }
-}
-
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closePriceModal();
-});
-</script>
 
 </body>
 </html>

@@ -1,6 +1,5 @@
 /**
- * THE WOOD AND GOOD - PREMIUM PRICING ENGINE
- * FIXED VERSION
+ * THE WOOD AND GOOD - PREMIUM PRICING & INTERFACE ENGINE
  */
 
 const pricingMatrix = {
@@ -323,6 +322,81 @@ function updateUI() {
         }, 100);
     }
 }
+
+/**
+ * =========================================================================
+ * GLOBAL INTERFACE NAVIGATION & MODAL CONTROLLERS
+ * =========================================================================
+ */
+
+// Mobile Hamburger Menu Navigation Toggle Action
+window.toggleMenu = function() {
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('hamburger-icon');
+    
+    if (menu.classList.contains('open')) {
+        menu.classList.remove('open');
+        icon.className = "fa-solid fa-bars";
+    } else {
+        menu.classList.add('open');
+        icon.className = "fa-solid fa-xmark";
+    }
+};
+
+// Premium Modal Sheet Layout Controls
+window.openPriceModal = function(targetTabId = 'tables-tab') {
+    const modal = document.getElementById('price-modal');
+    const sheet = document.getElementById('price-sheet');
+    document.body.classList.add('overflow-hidden'); // Lock scroll context behind overlay
+    
+    modal.classList.remove('pointer-events-none');
+    modal.classList.add('opacity-100');
+    sheet.classList.remove('translate-y-full', 'md:translate-y-4');
+    sheet.classList.add('translate-y-0');
+
+    // Route view straight to targeted view parameter
+    window.switchModalTab(targetTabId);
+};
+
+window.closePriceModal = function() {
+    const modal = document.getElementById('price-modal');
+    const sheet = document.getElementById('price-sheet');
+    document.body.classList.remove('overflow-hidden');
+    
+    modal.classList.add('pointer-events-none');
+    modal.classList.remove('opacity-100');
+    sheet.classList.remove('translate-y-0');
+    sheet.classList.add('translate-y-full', 'md:translate-y-4');
+};
+
+// Internal Modal Tab Segment Switching Matrix
+window.switchModalTab = function(tabId) {
+    const tablesBtn = document.getElementById('tables-tab');
+    const panelsBtn = document.getElementById('panels-tab');
+    const tablesData = document.getElementById('modal-tables-data');
+    const panelsData = document.getElementById('modal-panels-data');
+
+    if (!tablesBtn || !panelsBtn || !tablesData || !panelsData) return;
+
+    if (tabId === 'panels-tab') {
+        // Render Panel Data View Active
+        panelsBtn.className = "flex-1 py-2 text-xs font-bold uppercase tracking-wider rounded-lg text-center transition-all duration-150 bg-white text-gray-900 shadow-sm";
+        tablesBtn.className = "flex-1 py-2 text-xs font-bold uppercase tracking-wider rounded-lg text-center transition-all duration-150 text-gray-400 hover:text-gray-700";
+        tablesData.classList.add('hidden');
+        panelsData.classList.remove('hidden');
+    } else {
+        // Render Table Tops Data View Active
+        tablesBtn.className = "flex-1 py-2 text-xs font-bold uppercase tracking-wider rounded-lg text-center transition-all duration-150 bg-white text-gray-900 shadow-sm";
+        panelsBtn.className = "flex-1 py-2 text-xs font-bold uppercase tracking-wider rounded-lg text-center transition-all duration-150 text-gray-400 hover:text-gray-700";
+        panelsData.classList.add('hidden');
+        tablesData.classList.remove('hidden');
+    }
+};
+
+// Global Hotkey Escape Configuration Hook
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') window.closePriceModal();
+});
 
 /**
  * INITIAL LOAD
