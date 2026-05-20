@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Wood and Good | Premium Oak Craftsmanship</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
@@ -13,8 +13,8 @@
 <style>
 .segment-btn {
     cursor: pointer;
-    padding: 8px;
-    border-radius: 10px;
+    padding: 12px;
+    border-radius: 12px;
     text-align: center;
     font-size: 14px;
     transition: all 0.2s ease;
@@ -24,14 +24,14 @@
 .segment-btn.active {
     background-color: white !important;
     color: #111827 !important;
-    font-weight: 600;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    font-weight: 700;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 .segment-wrapper {
     display: flex;
     background: #f3f4f6;
     padding: 4px;
-    border-radius: 14px;
+    border-radius: 16px;
     border: 1px solid #e5e7eb;
 }
 
@@ -74,10 +74,10 @@
 </style>
 </head>
 
-<body class="antialiased text-gray-900 bg-white overflow-x-hidden">
+<body class="antialiased pb-20 md:pb-0 text-gray-900 bg-white">
 
-<nav class="fixed top-0 w-full z-50 border-b border-gray-100 bg-white/80 backdrop-blur-md h-14">
-    <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+<nav class="fixed top-0 w-full z-50 border-b border-gray-100 bg-white/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
         <div class="font-semibold tracking-tight text-xl italic uppercase">The Wood and Good</div>
         <div class="hidden md:flex space-x-10 text-[13px] font-medium text-gray-600">
             <a href="#panels">Panels</a>
@@ -107,76 +107,80 @@
     </div>
 </section>
 
-<section id="panels" class="pt-20 pb-10 bg-[#f5f5f7]">
+<section id="panels" class="pt-16 pb-12 bg-[#f5f5f7]">
     <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-4xl font-semibold mb-6">Oak Panels</h2>
+        <h2 class="text-5xl font-semibold mb-6">Oak Panels</h2>
 
         <div class="grid md:grid-cols-2 gap-6">
-            <div class="bg-white rounded-[24px] overflow-hidden border border-gray-200 shadow-sm">
+            <div class="bg-white rounded-[32px] overflow-hidden border border-gray-200 shadow-sm">
                 <img src="images/panels/full-stave.jpg"
                      onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop'"
-                     class="h-48 w-full object-cover"
+                     class="h-64 w-full object-cover"
                      alt="Full Stave Oak">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold">Full Stave</h3>
-                    <p class="text-gray-500 text-sm mt-1">Continuous grain elegance.</p>
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold">Full Stave</h3>
+                    <p class="text-gray-500 mt-1">Continuous grain elegance.</p>
                 </div>
             </div>
 
-            <div class="bg-white rounded-[24px] overflow-hidden border border-gray-200 shadow-sm">
+            <div class="bg-white rounded-[32px] overflow-hidden border border-gray-200 shadow-sm">
                 <img src="images/panels/finger-joint.jpg"
                      onerror="this.src='https://images.unsplash.com/photo-1588854337115-1c67d9247e4d?q=80&w=1200&auto=format&fit=crop'"
-                     class="h-48 w-full object-cover"
+                     class="h-64 w-full object-cover"
                      alt="Finger Joint Oak">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold">Finger Joint</h3>
-                    <p class="text-gray-500 text-sm mt-1">Maximum stability.</p>
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold">Finger Joint</h3>
+                    <p class="text-gray-500 mt-1">Maximum stability.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="build" class="fixed inset-x-0 bottom-12 top-14 bg-white md:relative md:top-0 md:h-auto md:min-h-screen pt-4 pb-2 flex flex-col justify-between">
-    <div class="w-full max-w-xl mx-auto px-4 flex flex-col h-full justify-between gap-3 overflow-hidden">
-        
-        <div class="shrink-0">
-            <div class="filter-container flex overflow-x-auto max-w-full gap-1 no-scrollbar bg-gray-100 p-1 rounded-xl w-full justify-between">
-                <button onclick="selectCategory('round')" class="cat-tab active px-3 py-1.5 text-sm rounded-lg font-medium transition-all duration-200 whitespace-nowrap">Round</button>
-                <button onclick="selectCategory('pillow')" class="cat-tab px-3 py-1.5 text-sm rounded-lg font-medium transition-all duration-200 whitespace-nowrap">Pillow</button>
-                <button onclick="selectCategory('live')" class="cat-tab px-3 py-1.5 text-sm rounded-lg font-medium transition-all duration-200 whitespace-nowrap">Live Edge</button>
-                <button onclick="selectCategory('straight')" class="cat-tab px-3 py-1.5 text-sm rounded-lg font-medium transition-all duration-200 whitespace-nowrap">Straight</button>
+<section id="build" class="pt-14 pb-20 bg-white min-h-screen md:min-h-0 flex flex-col justify-start">
+    <div class="max-w-xl mx-auto px-4 w-full flex flex-col justify-between gap-2">
+
+        <div class="flex justify-center mb-2 shrink-0">
+            <div class="filter-container flex overflow-x-auto max-w-full gap-1 no-scrollbar w-full justify-between">
+                <button onclick="selectCategory('round')" class="cat-tab active whitespace-nowrap">Round</button>
+                <button onclick="selectCategory('pillow')" class="cat-tab whitespace-nowrap">Pillow</button>
+                <button onclick="selectCategory('live')" class="cat-tab whitespace-nowrap">Live Edge</button>
+                <button onclick="selectCategory('straight')" class="cat-tab whitespace-nowrap">Straight</button>
             </div>
         </div>
 
-        <div class="bg-white rounded-[28px] border border-gray-200 p-4 shadow-sm flex flex-col flex-1 min-h-0 justify-between gap-3">
+        <div class="bg-white rounded-[40px] border border-gray-200 p-5 shadow-md flex flex-col gap-4">
             
-            <div class="bg-[#f5f5f7] rounded-[20px] overflow-hidden flex-1 min-h-0 w-full border border-gray-100 relative">
+            <div class="bg-[#f5f5f7] rounded-[32px] overflow-hidden aspect-square max-h-[28vh] mx-auto w-full border border-gray-100 relative shrink-0">
                 <img id="product-hero-image"
                      src="images/products/round-natural.jpg"
                      onerror="this.src='https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1200&auto=format&fit=crop'"
                      class="w-full h-full object-cover absolute inset-0">
             </div>
 
-            <div id="oak-configurator" class="shrink-0 text-left">
-                <div class="flex justify-between items-center mb-2">
-                    <div id="card-tag" class="badge-premium">Natural</div>
-                    <span id="display-price" class="text-3xl font-light italic text-gray-900">€187</span>
-                </div>
-
-                <h3 id="card-title" class="text-gray-900 text-xl font-bold mb-3 tracking-tight">Classic Oak Pillow Top</h3>
-
-                <div id="material-block" class="mb-3">
-                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1">Material Finish</p>
-                    <div id="material-toggle" class="segment-wrapper">
-                        <div onclick="toggleResin(false)" id="btn-natural" class="segment-btn active">Natural</div>
-                        <div onclick="toggleResin(true)" id="btn-resin" class="segment-btn">Resin</div>
-                    </div>
-                </div>
-
+            <div id="oak-configurator" class="text-left flex flex-col justify-between">
                 <div>
-                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1">Select Dimensions (mm)</p>
-                    <div id="dimension-grid" class="grid grid-cols-2 gap-2"></div>
+                    <div class="flex justify-between items-center mb-2">
+                        <div id="card-tag" class="badge-premium">Natural</div>
+                        <span id="display-price" class="text-3xl font-light italic text-gray-900">€187</span>
+                    </div>
+
+                    <h3 id="card-title" class="text-gray-900 text-2xl font-bold mb-4 tracking-tight">Classic Oak Pillow Top</h3>
+                </div>
+
+                <div class="space-y-4">
+                    <div id="material-block">
+                        <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1.5">Material Finish</p>
+                        <div id="material-toggle" class="segment-wrapper">
+                            <div onclick="toggleResin(false)" id="btn-natural" class="segment-btn active">Natural</div>
+                            <div onclick="toggleResin(true)" id="btn-resin" class="segment-btn">Resin</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1.5">Select Dimensions (mm)</p>
+                        <div id="dimension-grid" class="grid grid-cols-2 gap-2"></div>
+                    </div>
                 </div>
             </div>
 
