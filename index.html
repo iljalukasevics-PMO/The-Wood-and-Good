@@ -71,13 +71,20 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
             <div class="bg-white rounded-[32px] overflow-hidden border border-gray-200 shadow-sm flex flex-col justify-between">
                 <div>
-                    <div class="relative h-64 bg-gray-100">
-                        <img src="images/panels/full-stave.jpg"
-                             onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop'"
-                             class="w-full h-full object-cover"
-                             alt="Full Stave Oak">
-                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur text-gray-900 text-xs font-bold px-3 py-1 rounded-full border shadow-sm">Premium Continuous Grain</span>
+                    <div class="relative h-64 bg-gray-100 overflow-hidden group" data-carousel="fs">
+                        <div id="fs-carousel-track" class="flex w-full h-full transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1)">
+                            <img src="images/panels/full-stave-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop'" class="w-full h-full object-cover shrink-0" alt="Full Stave Oak View 1">
+                            <img src="images/panels/full-stave-2.jpg" onerror="this.src='https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=1200&auto=format&fit=crop'" class="w-full h-full object-cover shrink-0" alt="Full Stave Oak View 2">
+                        </div>
+
+                        <button onclick="moveCarousel('fs', -1)" class="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 backdrop-blur border border-gray-200 text-gray-800 flex items-center justify-center opacity-0 group-hover:opacity-100 md:opacity-0 transition-opacity duration-200 shadow-sm z-10"><i class="fa-solid fa-chevron-left text-xs"></i></button>
+                        <button onclick="moveCarousel('fs', 1)" class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 backdrop-blur border border-gray-200 text-gray-800 flex items-center justify-center opacity-0 group-hover:opacity-100 md:opacity-0 transition-opacity duration-200 shadow-sm z-10"><i class="fa-solid fa-chevron-right text-xs"></i></button>
+
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur text-gray-900 text-xs font-bold px-3 py-1 rounded-full border shadow-sm z-10">Premium Continuous Grain</span>
+
+                        <div id="fs-dots-container" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10"></div>
                     </div>
+
                     <div class="p-6 md:p-8">
                         <h3 class="text-2xl font-bold text-gray-900 mb-2">Full Stave (FS)</h3>
                         <p class="text-sm text-gray-500 font-medium leading-relaxed mb-6">
@@ -90,7 +97,7 @@
                             <div><p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Max Length</p><p class="text-sm font-bold text-gray-800 mt-0.5">3000 mm</p></div>
                         </div>
 
-                        <div class="bg-gray-50 rounded-2xl p-4 text-xs font-medium text-gray-600 border border-gray-100 mb-4">
+                        <div class="bg-gray-50 rounded-2xl p-4 text-xs font-medium text-gray-600 border border-gray-100 mb-6">
                             <span class="font-bold text-gray-900 block mb-1">Stave Specifications:</span>
                             Standard widths of 40-60mm (one uniform width per panel structure). Custom width sizes are dynamically engineered on direct technical specification request.
                         </div>
@@ -148,13 +155,20 @@
 
             <div class="bg-white rounded-[32px] overflow-hidden border border-gray-200 shadow-sm flex flex-col justify-between">
                 <div>
-                    <div class="relative h-64 bg-gray-100">
-                        <img src="images/panels/finger-joint.jpg"
-                             onerror="this.src='https://images.unsplash.com/photo-1588854337115-1c67d9247e4d?q=80&w=1200&auto=format&fit=crop'"
-                             class="w-full h-full object-cover"
-                             alt="Finger Joint Oak">
-                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur text-gray-900 text-xs font-bold px-3 py-1 rounded-full border shadow-sm">Engineered For Maximum Stability</span>
+                    <div class="relative h-64 bg-gray-100 overflow-hidden group" data-carousel="fj">
+                        <div id="fj-carousel-track" class="flex w-full h-full transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1)">
+                            <img src="images/panels/finger-joint-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1588854337115-1c67d9247e4d?q=80&w=1200&auto=format&fit=crop'" class="w-full h-full object-cover shrink-0" alt="Finger Joint Oak View 1">
+                            <img src="images/panels/finger-joint-2.jpg" onerror="this.src='https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=1200&auto=format&fit=crop'" class="w-full h-full object-cover shrink-0" alt="Finger Joint Oak View 2">
+                        </div>
+
+                        <button onclick="moveCarousel('fj', -1)" class="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 backdrop-blur border border-gray-200 text-gray-800 flex items-center justify-center opacity-0 group-hover:opacity-100 md:opacity-0 transition-opacity duration-200 shadow-sm z-10"><i class="fa-solid fa-chevron-left text-xs"></i></button>
+                        <button onclick="moveCarousel('fj', 1)" class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 backdrop-blur border border-gray-200 text-gray-800 flex items-center justify-center opacity-0 group-hover:opacity-100 md:opacity-0 transition-opacity duration-200 shadow-sm z-10"><i class="fa-solid fa-chevron-right text-xs"></i></button>
+
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur text-gray-900 text-xs font-bold px-3 py-1 rounded-full border shadow-sm z-10">Engineered For Maximum Stability</span>
+
+                        <div id="fj-dots-container" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10"></div>
                     </div>
+
                     <div class="p-6 md:p-8">
                         <h3 class="text-2xl font-bold text-gray-900 mb-2">Finger Joint (FJ)</h3>
                         <p class="text-sm text-gray-500 font-medium leading-relaxed mb-6">
@@ -588,6 +602,7 @@
 <script src="js/pricing.js"></script>
 
 <script>
+// Accordion Dropdown Toggling Mechanism
 function toggleAccordion(contentId, chevronId) {
     const content = document.getElementById(contentId);
     const chevron = document.getElementById(chevronId);
@@ -600,6 +615,63 @@ function toggleAccordion(contentId, chevronId) {
         chevron.style.transform = "rotate(180deg)";
     }
 }
+
+// Globally Auto-Counting Scalable Carousel Architecture
+const carouselStates = {
+    fs: { index: 0, count: 0 },
+    fj: { index: 0, count: 0 }
+};
+
+// Initialize Carousel Components dynamically based on domestic DOM elements tree length
+function initCarousels() {
+    ['fs', 'fj'].forEach(prefix => {
+        const track = document.getElementById(`${prefix}-carousel-track`);
+        const container = document.getElementById(`${prefix}-dots-container`);
+        if (!track || !container) return;
+
+        // Auto count how many image nodes you dropped into the container
+        const imageCount = track.getElementsByTagName('img').length;
+        carouselStates[prefix].count = imageCount;
+        carouselStates[prefix].index = 0;
+
+        // Generate matching indicator dots elements programmatically
+        container.innerHTML = '';
+        for (let i = 0; i < imageCount; i++) {
+            const dot = document.createElement('span');
+            dot.id = `${prefix}-dot-${i}`;
+            dot.className = `w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === 0 ? 'bg-white' : 'bg-white/40'}`;
+            container.appendChild(dot);
+        }
+    });
+}
+
+// Premium Sliding Carousel Navigation Engine
+function moveCarousel(cardPrefix, direction) {
+    const state = carouselStates[cardPrefix];
+    const track = document.getElementById(`${cardPrefix}-carousel-track`);
+    if (!track || state.count <= 1) return;
+
+    // Loop bounds mathematically smoothly
+    state.index = (state.index + direction + state.count) % state.count;
+    track.style.transform = `translateX(-${state.index * 100}%)`;
+
+    // Reset dot display active configurations dynamically
+    for (let i = 0; i < state.count; i++) {
+        const dot = document.getElementById(`${cardPrefix}-dot-${i}`);
+        if (dot) {
+            if (i === state.index) {
+                dot.classList.remove('bg-white/40');
+                dot.classList.add('bg-white');
+            } else {
+                dot.classList.remove('bg-white');
+                dot.classList.add('bg-white/40');
+            }
+        }
+    }
+}
+
+// Start tracking once markup components instantiate fully
+document.addEventListener('DOMContentLoaded', initCarousels);
 </script>
 
 </body>
