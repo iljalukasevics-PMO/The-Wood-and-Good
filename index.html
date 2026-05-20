@@ -11,6 +11,27 @@
 <link rel="stylesheet" href="css/style.css">
 
 <style>
+/* Category Button Styles matching pricing.js (.cat-tab.active) */
+.cat-tab {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    color: #6b7280;
+    background: transparent;
+    border: 1px solid transparent;
+}
+.cat-tab.active {
+    background-color: white !important;
+    color: #111827 !important;
+    font-weight: 700;
+    border-color: #e5e7eb;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Toggle Segment Button Styles (.segment-btn.active) */
 .segment-btn {
     cursor: pointer;
     padding: 12px;
@@ -35,15 +56,24 @@
     border: 1px solid #e5e7eb;
 }
 
-.badge-premium {
-    background: #059669;
-    color: white;
-    font-size: 11px;
+/* Dynamic Dimension Pills matching pricing.js (.dim-pill.active) */
+.dim-pill {
+    cursor: pointer;
+    padding: 14px;
+    background: #f3f4f6;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    text-align: center;
+    font-size: 14px;
     font-weight: 600;
-    padding: 6px 14px;
-    border-radius: 999px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    color: #4b5563;
+    transition: all 0.15s ease;
+}
+.dim-pill.active {
+    background: white !important;
+    border-color: #2563eb !important;
+    color: #2563eb !important;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1);
 }
 
 .mobile-nav {
@@ -81,7 +111,7 @@
         <div class="font-semibold tracking-tight text-xl italic uppercase">The Wood and Good</div>
         <div class="hidden md:flex space-x-10 text-[13px] font-medium text-gray-600">
             <a href="#panels">Panels</a>
-            <a href="#build">Table Tops</a>
+            <a href="#table-tops">Table Tops</a>
         </div>
     </div>
 </nav>
@@ -102,7 +132,7 @@
         </p>
 
         <div class="flex gap-6 justify-center">
-            <a href="#build" class="apple-button">Build your table</a>
+            <a href="#build" class="bg-white text-gray-900 px-6 py-3 rounded-full font-semibold shadow-md hover:bg-gray-50 transition">Build your table</a>
         </div>
     </div>
 </section>
@@ -137,43 +167,56 @@
     </div>
 </section>
 
-<section id="build" class="pt-16 pb-24 md:py-24 bg-white min-h-screen md:min-h-0 flex flex-col justify-start">
+<section id="table-tops" class="pt-16 pb-4 bg-white text-center">
+    <h2 class="text-5xl md:text-6xl font-semibold tracking-tight">Table Tops</h2>
+    <p class="text-gray-400 mt-2 text-lg">Built to define your space.</p>
+</section>
+
+<section id="build" class="pb-24 bg-white flex flex-col justify-start">
     <div class="max-w-4xl mx-auto px-4 w-full flex flex-col gap-4">
 
         <div class="flex justify-center shrink-0 max-w-xl mx-auto w-full">
-            <div class="filter-container flex overflow-x-auto max-w-full gap-1 no-scrollbar w-full justify-between">
-                <button onclick="selectCategory('round')" class="cat-tab active whitespace-nowrap">Round</button>
-                <button onclick="selectCategory('pillow')" class="cat-tab whitespace-nowrap">Pillow</button>
-                <button onclick="selectCategory('live')" class="cat-tab whitespace-nowrap">Live Edge</button>
-                <button onclick="selectCategory('straight')" class="cat-tab whitespace-nowrap">Straight</button>
+            <div class="filter-container flex overflow-x-auto max-w-full gap-1 no-scrollbar bg-gray-100 p-1 rounded-2xl w-full justify-between">
+                <button onclick="window.setCategory('round')" class="cat-tab active whitespace-nowrap">Round</button>
+                <button onclick="window.setCategory('pillow')" class="cat-tab whitespace-nowrap">Pillow</button>
+                <button onclick="window.setCategory('live')" class="cat-tab whitespace-nowrap">Live Edge</button>
+                <button onclick="window.setCategory('straight')" class="cat-tab whitespace-nowrap">Straight</button>
             </div>
         </div>
 
-        <div class="bg-white rounded-[32px] md:rounded-[40px] border border-gray-200 p-5 md:p-8 shadow-lg grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div class="bg-white rounded-[32px] md:rounded-[40px] border border-gray-200 p-4 md:p-8 shadow-lg grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
             
-            <div class="bg-white rounded-[24px] md:rounded-[32px] overflow-hidden aspect-square h-[24vh] md:h-auto max-h-[340px] md:max-h-full mx-auto w-full relative flex items-center justify-center p-2 border border-gray-100">
+            <div class="bg-[#f5f5f7] rounded-[24px] md:rounded-[32px] p-4 flex items-center justify-center border border-gray-100 h-[28vh] md:h-[400px] w-full relative">
+                <span id="image-badge" class="absolute top-3 left-3 bg-black/50 text-white text-[10px] uppercase font-bold px-2 py-1 rounded tracking-wider z-10">Latvian Oak</span>
+                
                 <img id="product-hero-image"
                      src="images/products/round-natural.jpg"
                      onerror="this.src='https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1200&auto=format&fit=crop'"
-                     class="w-full h-full object-contain absolute inset-0 p-2">
+                     class="max-w-full max-h-full object-contain transition-opacity duration-150">
             </div>
 
             <div id="oak-configurator" class="text-left flex flex-col justify-between h-full py-1">
                 <div>
-                    <div class="flex justify-between items-center mb-2">
-                        <div id="card-tag" class="badge-premium">Natural</div>
-                        <span id="display-price" class="text-3xl font-light italic text-gray-900">€187</span>
+                    <div class="flex justify-between items-center mb-3">
+                        <div id="card-tag" class="bg-emerald-600 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full text-white inline-block">Natural</div>
+                        <span id="display-price" class="text-4xl font-light italic text-gray-900 transition-opacity duration-100">€36</span>
                     </div>
 
-                    <h3 id="card-title" class="text-gray-900 text-2xl font-bold mb-4 tracking-tight">Classic Oak Pillow Top</h3>
+                    <h3 id="card-title" class="text-gray-900 text-2xl font-bold mb-1 tracking-tight">Classic Oak Round Accent</h3>
+                    
+                    <div class="text-xs text-gray-400 font-medium mb-4 flex gap-3">
+                        <span>Edge: <span id="card-edge-text" class="text-gray-600">Radius R3</span></span>
+                        <span>Material: <span id="card-material-text" class="text-gray-600">Natural Oak</span></span>
+                        <span>Thickness: <span id="spec-thick" class="text-gray-600">20mm</span></span>
+                    </div>
                 </div>
 
                 <div class="space-y-4">
-                    <div id="material-block">
+                    <div id="material-toggle-container" class="mb-3">
                         <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1.5">Material Finish</p>
                         <div id="material-toggle" class="segment-wrapper">
-                            <div onclick="toggleResin(false)" id="btn-natural" class="segment-btn active">Natural</div>
-                            <div onclick="toggleResin(true)" id="btn-resin" class="segment-btn">Resin</div>
+                            <div onclick="window.toggleResin(false)" id="btn-natural" class="segment-btn active">Natural</div>
+                            <div onclick="window.toggleResin(true)" id="btn-resin" class="segment-btn">Resin</div>
                         </div>
                     </div>
 
@@ -190,26 +233,10 @@
 
 <div class="mobile-nav md:hidden">
     <a href="#panels"><i class="fa-solid fa-layer-group"></i>Panels</a>
-    <a href="#build"><i class="fa-solid fa-table"></i>Tables</a>
+    <a href="#table-tops"><i class="fa-solid fa-table"></i>Tables</a>
 </div>
 
 <script src="js/pricing.js"></script>
-
-<script>
-function selectCategory(type) {
-    setCategory(type);
-
-    const materialBlock = document.getElementById("material-block");
-
-    if (type === "live" || type === "straight") {
-        materialBlock.style.display = "none";
-        document.getElementById("btn-natural").classList.add("active");
-        document.getElementById("btn-resin").classList.remove("active");
-    } else {
-        materialBlock.style.display = "block";
-    }
-}
-</script>
 
 </body>
 </html>
