@@ -300,7 +300,7 @@
                     <span class="text-[10px] uppercase tracking-wider font-bold bg-gray-100 text-gray-500 px-2 py-0.5 rounded">Edge: R3</span>
                 </div>
                 <div class="space-y-2">
-                    <div class="grid grid-cols-12 text-xs text-gray-400 font-bold px-1 uppercase tracking-wider">
+                    <div class="grid grid-cols-12 text-xs text-gray-400 font-bold px-1 uppercase tracking-wider mb-1">
                         <span class="col-span-6">Dimensions</span>
                         <span class="col-span-3 text-right">Natural</span>
                         <span class="col-span-3 text-right">Resin</span>
@@ -329,7 +329,7 @@
                     <span class="text-[10px] uppercase tracking-wider font-bold bg-gray-100 text-gray-500 px-2 py-0.5 rounded">Edge: R2</span>
                 </div>
                 <div class="space-y-2">
-                    <div class="grid grid-cols-12 text-xs text-gray-400 font-bold px-1 uppercase tracking-wider">
+                    <div class="grid grid-cols-12 text-xs text-gray-400 font-bold px-1 uppercase tracking-wider mb-1">
                         <span class="col-span-6">Dimensions</span>
                         <span class="col-span-3 text-right">Natural</span>
                         <span class="col-span-3 text-right">Resin</span>
@@ -353,7 +353,7 @@
                     <span class="text-[10px] uppercase tracking-wider font-bold bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded">Natural Finish Only</span>
                 </div>
                 <div class="space-y-2">
-                    <div class="grid grid-cols-12 text-xs text-gray-400 font-bold px-1 uppercase tracking-wider">
+                    <div class="grid grid-cols-12 text-xs text-gray-400 font-bold px-1 uppercase tracking-wider mb-1">
                         <span class="col-span-8">Dimensions (Width × Length)</span>
                         <span class="col-span-4 text-right">Price</span>
                     </div>
@@ -386,7 +386,7 @@
                     <span class="text-[10px] uppercase tracking-wider font-bold bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded">Natural Finish Only</span>
                 </div>
                 <div class="space-y-2">
-                    <div class="grid grid-cols-12 text-xs text-gray-400 font-bold px-1 uppercase tracking-wider">
+                    <div class="grid grid-cols-12 text-xs text-gray-400 font-bold px-1 uppercase tracking-wider mb-1">
                         <span class="col-span-8">Dimensions (Width × Length)</span>
                         <span class="col-span-4 text-right">Price</span>
                     </div>
@@ -445,6 +445,10 @@ function openPriceModal() {
     sheet.classList.remove('translate-y-full', 'md:translate-y-4');
     sheet.classList.add('translate-y-0');
 }
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closePriceModal();
+});
 
 function closePriceModal() {
     const modal = document.getElementById('price-modal');
