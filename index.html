@@ -107,7 +107,7 @@
     </div>
 </section>
 
-<section id="panels" class="pt-16 pb-12 bg-[#f5f5f7]">
+<section id="panels" class="pt-20 pb-12 bg-[#f5f5f7]">
     <div class="max-w-7xl mx-auto px-6">
         <h2 class="text-5xl font-semibold mb-6">Oak Panels</h2>
 
@@ -137,10 +137,10 @@
     </div>
 </section>
 
-<section id="build" class="pt-14 pb-20 bg-white min-h-screen md:min-h-0 flex flex-col justify-start">
-    <div class="max-w-xl mx-auto px-4 w-full flex flex-col justify-between gap-2">
+<section id="build" class="pt-16 pb-24 md:py-24 bg-white min-h-screen md:min-h-0 flex flex-col justify-start">
+    <div class="max-w-4xl mx-auto px-4 w-full flex flex-col gap-4">
 
-        <div class="flex justify-center mb-2 shrink-0">
+        <div class="flex justify-center shrink-0 max-w-xl mx-auto w-full">
             <div class="filter-container flex overflow-x-auto max-w-full gap-1 no-scrollbar w-full justify-between">
                 <button onclick="selectCategory('round')" class="cat-tab active whitespace-nowrap">Round</button>
                 <button onclick="selectCategory('pillow')" class="cat-tab whitespace-nowrap">Pillow</button>
@@ -149,16 +149,16 @@
             </div>
         </div>
 
-        <div class="bg-white rounded-[40px] border border-gray-200 p-5 shadow-md flex flex-col gap-4">
+        <div class="bg-white rounded-[32px] md:rounded-[40px] border border-gray-200 p-4 md:p-8 shadow-lg grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
             
-            <div class="bg-[#f5f5f7] rounded-[32px] overflow-hidden aspect-square max-h-[28vh] mx-auto w-full border border-gray-100 relative shrink-0">
+            <div class="bg-[#f5f5f7] rounded-[24px] md:rounded-[32px] overflow-hidden aspect-square h-[24vh] mobile-img-height md:h-auto max-h-[340px] md:max-h-full mx-auto w-full border border-gray-100 relative flex items-center justify-center">
                 <img id="product-hero-image"
                      src="images/products/round-natural.jpg"
                      onerror="this.src='https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1200&auto=format&fit=crop'"
                      class="w-full h-full object-cover absolute inset-0">
             </div>
 
-            <div id="oak-configurator" class="text-left flex flex-col justify-between">
+            <div id="oak-configurator" class="text-left flex flex-col justify-between h-full py-1">
                 <div>
                     <div class="flex justify-between items-center mb-2">
                         <div id="card-tag" class="badge-premium">Natural</div>
