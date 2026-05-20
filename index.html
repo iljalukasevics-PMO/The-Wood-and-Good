@@ -13,25 +13,26 @@
 <style>
 .segment-btn {
     cursor: pointer;
-    padding: 12px;
-    border-radius: 12px;
+    padding: 10px;
+    border-radius: 10px;
     text-align: center;
     font-size: 14px;
     transition: all 0.2s ease;
-    color: rgba(255,255,255,0.4);
+    color: #6b7280;
     flex: 1;
 }
 .segment-btn.active {
     background-color: white !important;
     color: #111827 !important;
-    font-weight: 700;
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 .segment-wrapper {
     display: flex;
-    background: rgba(255,255,255,0.05);
+    background: #f3f4f6;
     padding: 4px;
-    border-radius: 16px;
-    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
 }
 
 .badge-premium {
@@ -71,9 +72,8 @@
 </style>
 </head>
 
-<body class="antialiased pb-20 md:pb-0">
+<body class="antialiased pb-20 md:pb-0 text-gray-900">
 
-<!-- NAV -->
 <nav class="fixed top-0 w-full z-50 border-b border-gray-100 bg-white/80 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
         <div class="font-semibold tracking-tight text-xl italic uppercase">The Wood and Good</div>
@@ -85,7 +85,6 @@
     </div>
 </nav>
 
-<!-- HERO -->
 <section class="relative h-screen flex items-center justify-center">
     <img src="images/hero/hero.jpg"
          onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1582582494700-66f1c9c3c2b5?q=80&w=1600&auto=format&fit=crop';"
@@ -108,13 +107,11 @@
     </div>
 </section>
 
-<!-- PANELS -->
 <section id="panels" class="pt-12 pb-6 bg-[#f5f5f7]">
     <div class="max-w-7xl mx-auto px-6">
         <h2 class="text-5xl font-semibold mb-6">Oak Panels</h2>
 
         <div class="grid md:grid-cols-2 gap-6">
-
             <div class="bg-white rounded-[32px] overflow-hidden border">
                 <img src="images/panels/full-stave.jpg"
                      onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop'"
@@ -136,75 +133,71 @@
                     <p class="text-gray-500 mt-1">Maximum stability.</p>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
 
-<!-- TABLE TOPS -->
-<section id="table-tops" class="pt-10 pb-4 bg-white text-center">
-    <h2 class="text-5xl md:text-6xl font-semibold tracking-tight">Table Tops</h2>
-    <p class="text-gray-400 mt-2 text-lg">Built to define your space.</p>
+<section id="table-tops" class="pt-8 pb-2 bg-white text-center">
+    <h2 class="text-4xl md:text-6xl font-semibold tracking-tight">Table Tops</h2>
+    <p class="text-gray-400 mt-1 text-base md:text-lg">Built to define your space.</p>
 </section>
 
-<!-- BUILD -->
-<section id="build" class="pb-12 bg-white">
-    <div class="max-w-xl mx-auto px-6 text-center">
+<section id="build" class="pb-12 bg-white h-auto md:h-auto min-h-[calc(100vh-120px)] flex flex-col justify-center">
+    <div class="max-w-xl mx-auto px-4 w-full flex flex-col justify-between h-full">
 
-        <div class="flex justify-center mb-6">
-            <div class="filter-container">
-                <button onclick="selectCategory('round')" class="cat-tab active">Round</button>
-                <button onclick="selectCategory('pillow')" class="cat-tab">Pillow</button>
-                <button onclick="selectCategory('live')" class="cat-tab">Live Edge</button>
-                <button onclick="selectCategory('straight')" class="cat-tab">Straight</button>
+        <div class="flex justify-center mb-4 shrink-0">
+            <div class="filter-container flex overflow-x-auto max-w-full gap-1 no-scrollbar">
+                <button onclick="selectCategory('round')" class="cat-tab active whitespace-nowrap">Round</button>
+                <button onclick="selectCategory('pillow')" class="cat-tab whitespace-nowrap">Pillow</button>
+                <button onclick="selectCategory('live')" class="cat-tab whitespace-nowrap">Live Edge</button>
+                <button onclick="selectCategory('straight')" class="cat-tab whitespace-nowrap">Straight</button>
             </div>
         </div>
 
-        <div class="bg-[#f5f5f7] rounded-[40px] overflow-hidden mb-4 border">
-            <img id="product-hero-image"
-                 src="images/products/round-natural.jpg"
-                 onerror="this.src='https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1200&auto=format&fit=crop'"
-                 class="w-full h-full object-cover">
-        </div>
-
-        <div id="oak-configurator" class="bg-gray-900 rounded-[40px] p-8 text-left">
-
-            <div class="flex justify-between items-center mb-5">
-                <div id="card-tag" class="badge-premium">Natural</div>
-                <span id="display-price" class="text-3xl text-white font-light italic">€187</span>
+        <div class="bg-white rounded-[32px] border border-gray-200 p-4 shadow-sm flex flex-col gap-4">
+            
+            <div class="bg-[#f5f5f7] rounded-[24px] overflow-hidden aspect-square max-h-[320px] mx-auto w-full border border-gray-100">
+                <img id="product-hero-image"
+                     src="images/products/round-natural.jpg"
+                     onerror="this.src='https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1200&auto=format&fit=crop'"
+                     class="w-full h-full object-cover">
             </div>
 
-            <h3 id="card-title" class="text-white text-2xl font-semibold mb-5">Classic Oak</h3>
+            <div id="oak-configurator" class="text-left">
+                <div class="flex justify-between items-center mb-3">
+                    <div id="card-tag" class="badge-premium">Natural</div>
+                    <span id="display-price" class="text-3xl font-light italic text-gray-900">€187</span>
+                </div>
 
-            <div id="material-block" class="mb-5">
-                <p class="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-2">Material Finish</p>
-                <div id="material-toggle" class="segment-wrapper">
-                    <div onclick="toggleResin(false)" id="btn-natural" class="segment-btn active">Natural</div>
-                    <div onclick="toggleResin(true)" id="btn-resin" class="segment-btn">Resin</div>
+                <h3 id="card-title" class="text-gray-900 text-2xl font-bold mb-4 tracking-tight">Classic Oak Pillow Top</h3>
+
+                <div id="material-block" class="mb-4">
+                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1.5">Material Finish</p>
+                    <div id="material-toggle" class="segment-wrapper">
+                        <div onclick="toggleResin(false)" id="btn-natural" class="segment-btn active">Natural</div>
+                        <div onclick="toggleResin(true)" id="btn-resin" class="segment-btn">Resin</div>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1.5">Select Dimensions (mm)</p>
+                    <div id="dimension-grid" class="grid grid-cols-2 gap-2"></div>
                 </div>
             </div>
 
-            <div>
-                <p class="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-2">Select Dimensions (mm)</p>
-                <div id="dimension-grid" class="grid grid-cols-2 gap-3"></div>
-            </div>
-
         </div>
     </div>
 </section>
 
-<!-- CONTACT -->
-<footer id="contact" class="bg-white pt-12 pb-20 border-t text-center">
-    <h2 class="text-4xl md:text-5xl font-semibold mb-6 tracking-tight">Let’s build something exceptional.</h2>
-
-    <div class="bg-[#f5f5f7] rounded-[40px] p-8 max-w-2xl mx-auto border">
-        <p class="text-xl font-semibold">Ilja Lukasevics</p>
-        <a href="mailto:iljalukasevics@gmail.com" class="text-blue-600 block my-1 font-medium">iljalukasevics@gmail.com</a>
-        <p>+371 25940440</p>
+<footer id="contact" class="bg-[#f5f5f7] py-12 border-t text-center">
+    <div class="bg-white rounded-[32px] p-6 max-w-md mx-auto border border-gray-200 shadow-sm mx-4 md:mx-auto">
+        <p class="text-xs uppercase font-bold tracking-widest text-gray-400 mb-2">Project Craftsman</p>
+        <p class="text-xl font-bold text-gray-900">Ilja Lukasevics</p>
+        <a href="mailto:iljalukasevics@gmail.com" class="text-blue-600 block my-1 font-semibold hover:underline">iljalukasevics@gmail.com</a>
+        <p class="text-gray-500 font-medium">+371 25940440</p>
     </div>
 </footer>
 
-<!-- MOBILE NAV -->
 <div class="mobile-nav md:hidden">
     <a href="#panels"><i class="fa-solid fa-layer-group"></i>Panels</a>
     <a href="#table-tops"><i class="fa-solid fa-table"></i>Tables</a>
