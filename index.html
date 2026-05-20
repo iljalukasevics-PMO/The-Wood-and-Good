@@ -123,6 +123,14 @@
     transform: translateY(0);
     pointer-events: auto;
 }
+
+/* Premium Drawer Sheets Configuration styles */
+#price-modal {
+    transition: opacity 0.25s ease-in-out;
+}
+#price-sheet {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
 </style>
 </head>
 
@@ -260,10 +268,148 @@
                     </div>
                 </div>
             </div>
+        </div>
 
+        <div class="text-center mt-2">
+            <button onclick="openPriceModal()" class="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors inline-flex items-center gap-2 border-b border-gray-300 pb-0.5">
+                <i class="fa-solid fa-list-ul text-xs"></i> See all prices & specifications
+            </button>
         </div>
     </div>
 </section>
+
+<div id="price-modal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none flex items-end md:items-center justify-center">
+    <div class="absolute inset-0" onclick="closePriceModal()"></div>
+    
+    <div id="price-sheet" class="relative w-full max-w-2xl bg-white rounded-t-[32px] md:rounded-[24px] shadow-2xl transform translate-y-full md:translate-y-4 max-h-[85vh] md:max-h-[75vh] flex flex-col overflow-hidden z-10">
+        
+        <div class="px-6 pt-5 pb-4 border-b border-gray-100 flex items-center justify-between shrink-0 bg-white">
+            <div>
+                <h3 class="text-lg font-bold text-gray-900 tracking-tight">Price & Dimensions Matrix</h3>
+                <p class="text-xs text-gray-400 font-medium mt-0.5">Premium Latvian Oak Craftsmanship</p>
+            </div>
+            <button onclick="closePriceModal()" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors flex items-center justify-center text-gray-500 hover:text-gray-800">
+                <i class="fa-solid fa-xmark text-sm"></i>
+            </button>
+        </div>
+
+        <div class="p-6 overflow-y-auto space-y-8 no-scrollbar bg-gray-50/50">
+            
+            <div class="bg-white rounded-2xl border border-gray-100 p-4 shadow-sm">
+                <div class="flex items-center justify-between border-b border-gray-100 pb-2 mb-3">
+                    <span class="text-sm font-bold tracking-tight text-gray-900 flex items-center gap-2"><i class="fa-regular fa-circle text-xs text-gray-400"></i> Round Accent</span>
+                    <span class="text-[10px] uppercase tracking-wider font-bold bg-gray-100 text-gray-500 px-2 py-0.5 rounded">Edge: R3</span>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center text-xs text-gray-400 font-bold px-1 uppercase tracking-wider">
+                        <span>Dimensions</span>
+                        <div class="w-32 flex justify-between"><span class="w-16 text-right">Natural</span><span class="w-16 text-right">Resin</span></div>
+                    </div>
+                    <div class="flex justify-between items-center p-2.5 rounded-xl bg-gray-50 text-sm font-medium">
+                        <div class="flex flex-col"><span>600 × 600 mm</span><span class="text-[11px] text-gray-400">Thickness: 20mm</span></div>
+                        <div class="w-32 flex justify-between"><span class="w-16 text-right text-gray-900 font-bold">€36</span><span class="w-16 text-right text-blue-600 font-bold">€58</span></div>
+                    </div>
+                    <div class="flex justify-between items-center p-2.5 rounded-xl bg-gray-50 text-sm font-medium">
+                        <div class="flex flex-col"><span>800 × 800 mm</span><span class="text-[11px] text-gray-400">Thickness: 20mm</span></div>
+                        <div class="w-32 flex justify-between"><span class="w-16 text-right text-gray-900 font-bold">€64</span><span class="w-16 text-right text-blue-600 font-bold">€102</span></div>
+                    </div>
+                    <div class="flex justify-between items-center p-2.5 rounded-xl bg-gray-50 text-sm font-medium">
+                        <div class="flex flex-col"><span>1200 × 1200 mm</span><span class="text-[11px] text-gray-400">Thickness: 26mm</span></div>
+                        <div class="w-32 flex justify-between"><span class="w-16 text-right text-gray-900 font-bold">€187</span><span class="w-16 text-right text-blue-600 font-bold">€300</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-gray-100 p-4 shadow-sm">
+                <div class="flex items-center justify-between border-b border-gray-100 pb-2 mb-3">
+                    <span class="text-sm font-bold tracking-tight text-gray-900 flex items-center gap-2"><i class="fa-regular fa-square text-xs text-gray-400"></i> Pillow Top</span>
+                    <span class="text-[10px] uppercase tracking-wider font-bold bg-gray-100 text-gray-500 px-2 py-0.5 rounded">Edge: R2</span>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center text-xs text-gray-400 font-bold px-1 uppercase tracking-wider">
+                        <span>Dimensions</span>
+                        <div class="w-32 flex justify-between"><span class="w-16 text-right">Natural</span><span class="w-16 text-right">Resin</span></div>
+                    </div>
+                    <div class="flex justify-between items-center p-2.5 rounded-xl bg-gray-50 text-sm font-medium">
+                        <div class="flex flex-col"><span>600 × 600 mm</span><span class="text-[11px] text-gray-400">Thickness: 20mm</span></div>
+                        <div class="w-32 flex justify-between"><span class="w-16 text-right text-gray-900 font-bold">€36</span><span class="w-16 text-right text-blue-600 font-bold">€58</span></div>
+                    </div>
+                    <div class="flex justify-between items-center p-2.5 rounded-xl bg-gray-50 text-sm font-medium">
+                        <div class="flex flex-col"><span>800 × 800 mm</span><span class="text-[11px] text-gray-400">Thickness: 20mm</span></div>
+                        <div class="w-32 flex justify-between"><span class="w-16 text-right text-gray-900 font-bold">€64</span><span class="w-16 text-right text-blue-600 font-bold">€102</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-gray-100 p-4 shadow-sm">
+                <div class="flex items-center justify-between border-b border-gray-100 pb-2 mb-3">
+                    <span class="text-sm font-bold tracking-tight text-gray-900 flex items-center gap-2"><i class="fa-solid fa-waveform text-xs text-gray-400"></i> Organic Live Edge</span>
+                    <span class="text-[10px] uppercase tracking-wider font-bold bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded">Natural Finish Only</span>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center text-xs text-gray-400 font-bold px-1 uppercase tracking-wider">
+                        <span>Dimensions (Width × Length)</span>
+                        <span class="w-16 text-right">Price</span>
+                    </div>
+                    <div class="flex justify-between items-center p-2.5 rounded-xl bg-gray-50 text-sm font-medium">
+                        <div class="flex flex-col"><span>800 × 800 mm</span><span class="text-[11px] text-gray-400">Thickness: 26mm</span></div>
+                        <span class="w-16 text-right text-gray-900 font-bold">€83</span>
+                    </div>
+                    <div class="flex justify-between items-center p-2.5 rounded-xl bg-gray-50 text-sm font-medium">
+                        <div class="flex flex-col"><span>800 × 1500 mm</span><span class="text-[11px] text-gray-400">Thickness: 26mm</span></div>
+                        <span class="w-16 text-right text-gray-900 font-bold">€156</span>
+                    </div>
+                    <div class="flex justify-between items-center p-2.5 rounded-xl bg-gray-50 text-sm font-medium">
+                        <div class="flex flex-col"><span>800 × 2000 mm</span><span class="text-[11px] text-gray-400">Thickness: 26mm</span></div>
+                        <span class="w-16 text-right text-gray-900 font-bold">€208</span>
+                    </div>
+                    <div class="flex justify-between items-center p-2.5 rounded-xl bg-gray-50 text-sm font-medium">
+                        <div class="flex flex-col"><span>1000 × 2000 mm</span><span class="text-[11px] text-gray-400">Thickness: 40mm | Premium Premium m3</span></div>
+                        <span class="w-16 text-right text-gray-900 font-bold">€320</span>
+                    </div>
+                    <div class="flex justify-between items-center p-2.5 rounded-xl bg-gray-50 text-sm font-medium">
+                        <div class="flex flex-col"><span>1100 × 2400 mm</span><span class="text-[11px] text-gray-400">Thickness: 40mm | Premium Premium m3</span></div>
+                        <span class="w-16 text-right text-gray-900 font-bold">€422</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-gray-100 p-4 shadow-sm">
+                <div class="flex items-center justify-between border-b border-gray-100 pb-2 mb-3">
+                    <span class="text-sm font-bold tracking-tight text-gray-900 flex items-center gap-2"><i class="fa-solid fa-bars-staggered text-xs text-gray-400"></i> Industrial Straight Edge</span>
+                    <span class="text-[10px] uppercase tracking-wider font-bold bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded">Natural Finish Only</span>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center text-xs text-gray-400 font-bold px-1 uppercase tracking-wider">
+                        <span>Dimensions (Width × Length)</span>
+                        <span class="w-16 text-right">Price</span>
+                    </div>
+                    <div class="flex justify-between items-center p-2.5 rounded-xl bg-gray-50 text-sm font-medium">
+                        <div class="flex flex-col"><span>800 × 800 mm</span><span class="text-[11px] text-gray-400">Thickness: 26mm</span></div>
+                        <span class="w-16 text-right text-gray-900 font-bold">€83</span>
+                    </div>
+                    <div class="flex justify-between items-center p-2.5 rounded-xl bg-gray-50 text-sm font-medium">
+                        <div class="flex flex-col"><span>800 × 1500 mm</span><span class="text-[11px] text-gray-400">Thickness: 26mm</span></div>
+                        <span class="w-16 text-right text-gray-900 font-bold">€156</span>
+                    </div>
+                    <div class="flex justify-between items-center p-2.5 rounded-xl bg-gray-50 text-sm font-medium">
+                        <div class="flex flex-col"><span>800 × 2000 mm</span><span class="text-[11px] text-gray-400">Thickness: 26mm</span></div>
+                        <span class="w-16 text-right text-gray-900 font-bold">€208</span>
+                    </div>
+                    <div class="flex justify-between items-center p-2.5 rounded-xl bg-gray-50 text-sm font-medium">
+                        <div class="flex flex-col"><span>1000 × 2000 mm</span><span class="text-[11px] text-gray-400">Thickness: 40mm</span></div>
+                        <span class="w-16 text-right text-gray-900 font-bold">€320</span>
+                    </div>
+                    <div class="flex justify-between items-center p-2.5 rounded-xl bg-gray-50 text-sm font-medium">
+                        <div class="flex flex-col"><span>1100 × 2400 mm</span><span class="text-[11px] text-gray-400">Thickness: 40mm</span></div>
+                        <span class="w-16 text-right text-gray-900 font-bold">€422</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 <script src="js/pricing.js"></script>
 
@@ -280,6 +426,29 @@ function toggleMenu() {
         menu.classList.add('open');
         icon.className = "fa-solid fa-xmark";
     }
+}
+
+// Modal Toggle Mechanics
+function openPriceModal() {
+    const modal = document.getElementById('price-modal');
+    const sheet = document.getElementById('price-sheet');
+    document.body.classList.add('overflow-hidden'); // stop background scrolling
+    
+    modal.classList.remove('pointer-events-none');
+    modal.classList.add('opacity-100');
+    sheet.classList.remove('translate-y-full', 'md:translate-y-4');
+    sheet.classList.add('translate-y-0');
+}
+
+function closePriceModal() {
+    const modal = document.getElementById('price-modal');
+    const sheet = document.getElementById('price-sheet');
+    document.body.classList.remove('overflow-hidden');
+    
+    modal.classList.add('pointer-events-none');
+    modal.classList.remove('opacity-100');
+    sheet.classList.remove('translate-y-0');
+    sheet.classList.add('translate-y-full', 'md:translate-y-4');
 }
 </script>
 
